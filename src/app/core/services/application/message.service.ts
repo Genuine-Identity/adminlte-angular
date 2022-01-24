@@ -24,7 +24,7 @@ import {
 
 @Injectable()
 export class MessageService {
-  messages: Message[];
+  messages: any;
   constructor(private http: HttpClient) {}
 
   public register(message: Message) {
@@ -94,7 +94,7 @@ export class MessageService {
     const end = Math.min(start + page.size, page.totalElements);
     for (let i = start; i < end; i++) {
       const jsonObj = this.messages[i];
-      const message: Message = {
+      const message: any = {
         id: jsonObj.id,
         from: jsonObj.from,
         fromName: jsonObj.fromName,
@@ -116,7 +116,7 @@ export class MessageService {
   }
 
   public getMessage(): Message[] {
-    let message: Message[] = [
+    let message: any[] = [
       {
         id: 1,
         imgSource: 'https://github.com/Genuine-Identity.png',
