@@ -27,7 +27,10 @@ import { AceEditorModule } from "ng2-ace-editor";
 
 import { AngularFireModule } from "angularfire2";
 import { environment } from "./core/environment";
-import { AngularFirestoreModule } from "angularfire2/firestore";
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 @NgModule({
   imports: [
