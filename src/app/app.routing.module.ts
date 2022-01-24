@@ -4,11 +4,13 @@ import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 const routes: Routes = [  
   {
     path: '',
-    loadChildren: './layout/admin/admin-layout.module#AdminLayoutModule',    
+    // loadChildren: './layout/admin/admin-layout.module#AdminLayoutModule',  
+    loadChildren: () => import('./layout/admin/admin-layout.module').then(x => x.AdminLayoutModule)  
   },
   {
     path: 'user',
-    loadChildren: './layout/default/default-layout.module#DefaultLayoutModule',
+    // loadChildren: './layout/default/default-layout.module#DefaultLayoutModule',
+    loadChildren: () => import('./layout/default/default-layout.module').then(x => x.AdminLayoutModule) 
   },
   { path: '**', redirectTo: '' }
 ];

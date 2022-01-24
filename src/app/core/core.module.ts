@@ -27,7 +27,7 @@ import { JsonWebTokenInterceptorProvider } from './services/helpers/json-web-tok
 import { EnsureModuleLoadedOnceGuard } from './ensure-module-loaded-once.guard';
 import { SearchService } from './services/application/search.service';
 import { LoggerService } from './services/application/logger.service';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
+
 @NgModule({
   providers: [
     AppSettings,
@@ -48,7 +48,6 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     JsonWebTokenInterceptorProvider,
     ErrorInterceptorProvider,
     FakeBackendInterceptorProvider,
-    AngularFirestoreModule, // firestore
   ],
 })
 export class CoreModule extends EnsureModuleLoadedOnceGuard {
