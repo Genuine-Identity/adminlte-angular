@@ -1,26 +1,26 @@
-import { Injectable } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Injectable } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {
   Component,
   Input,
   OnInit,
   Output,
   EventEmitter,
-  ViewEncapsulation
-} from "@angular/core";
-import { HttpClient, HttpParams } from "@angular/common/http";
-import { Message } from "../../../shared/models/message";
-import { map } from "rxjs/operators";
-import { Observable, of } from "rxjs";
-import { first } from "rxjs/operators";
+  ViewEncapsulation,
+} from '@angular/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Message } from '../../../shared/models/message';
+import { map } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { first } from 'rxjs/operators';
 
-import { User } from "../../../shared/models/index";
+import { User } from '../../../shared/models/index';
 
 import {
   PagedData,
   CorporateEmployee,
-  Page
-} from "../../../shared/models/page";
+  Page,
+} from '../../../shared/models/page';
 
 @Injectable()
 export class MessageService {
@@ -54,19 +54,19 @@ export class MessageService {
     id: string,
     mailType: string
   ): Observable<PagedData<Message>> {
-    return this.getByToId(id, mailType).flatMap(data => {
+    return this.getByToId(id, mailType).flatMap((data) => {
       this.messages = data;
-      return of(data).pipe(map(data => this.getPagedData(page)));
+      return of(data).pipe(map((data) => this.getPagedData(page)));
     });
   }
   public getFromMessages(
     page: Page,
     id: string
   ): Observable<PagedData<Message>> {
-    console.log("a");
-    return this.getByFromId(id).flatMap(data => {
+    console.log('a');
+    return this.getByFromId(id).flatMap((data) => {
       this.messages = data;
-      return of(data).pipe(map(data => this.getPagedData(page)));
+      return of(data).pipe(map((data) => this.getPagedData(page)));
     });
   }
 
@@ -76,9 +76,9 @@ export class MessageService {
   }
 
   public getResults(page: Page): Observable<PagedData<Message>> {
-    return this.getAll().flatMap(data => {
+    return this.getAll().flatMap((data) => {
       this.messages = data;
-      return of(data).pipe(map(data => this.getPagedData(page)));
+      return of(data).pipe(map((data) => this.getPagedData(page)));
     });
   }
   /**
@@ -107,7 +107,7 @@ export class MessageService {
         time: jsonObj.time,
         type: jsonObj.type,
         suggestion: jsonObj.suggestion,
-        imgSource: jsonObj.imgSource
+        imgSource: jsonObj.imgSource,
       };
       pagedData.data.push(message);
     }
@@ -119,32 +119,32 @@ export class MessageService {
     let message: Message[] = [
       {
         id: 1,
-        imgSource: "https://github.com/Genuine-Identity.png",
-        team: "Support Team",
-        time: "5 mins",
-        suggestion: "Why not buy a new awesome theme?"
+        imgSource: 'https://github.com/Genuine-Identity.png',
+        team: 'Support Team',
+        time: '5 mins',
+        suggestion: 'Why not buy a new awesome theme?',
       },
       {
         id: 2,
-        imgSource: "https://github.com/Genuine-Identity.png",
-        team: "Design Team",
-        time: "2 hours",
-        suggestion: "Why not buy a new awesome theme?"
+        imgSource: 'https://github.com/Genuine-Identity.png',
+        team: 'Design Team',
+        time: '2 hours',
+        suggestion: 'Why not buy a new awesome theme?',
       },
       {
         id: 3,
-        imgSource: "https://github.com/Genuine-Identity.png",
-        team: "Developers",
-        time: "Today",
-        suggestion: "Why not buy a new awesome theme?"
+        imgSource: 'https://github.com/Genuine-Identity.png',
+        team: 'Developers',
+        time: 'Today',
+        suggestion: 'Why not buy a new awesome theme?',
       },
       {
         id: 4,
-        imgSource: "https://github.com/Genuine-Identity.png",
-        team: "Sales Department",
-        time: "1 hours",
-        suggestion: "Why not buy a new awesome theme?"
-      }
+        imgSource: 'https://github.com/Genuine-Identity.png',
+        team: 'Sales Department',
+        time: '1 hours',
+        suggestion: 'Why not buy a new awesome theme?',
+      },
     ];
     return message;
   }

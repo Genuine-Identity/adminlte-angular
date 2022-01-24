@@ -1,26 +1,26 @@
-import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {
   Component,
   Input,
   OnInit,
   Output,
   EventEmitter,
-  ViewEncapsulation
-} from "@angular/core";
+  ViewEncapsulation,
+} from '@angular/core';
 
-import { map } from "rxjs/operators";
-import { Observable, of } from "rxjs";
-import { first } from "rxjs/operators";
+import { map } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { first } from 'rxjs/operators';
 
-import { User } from "../../../shared/models/index";
+import { User } from '../../../shared/models/index';
 import {
   PagedData,
   CorporateEmployee,
-  Page
-} from "../../../shared/models/page";
-import { NgSelectModule, NgOption } from "@ng-select/ng-select";
+  Page,
+} from '../../../shared/models/page';
+import { NgSelectModule, NgOption } from '@ng-select/ng-select';
 
 @Injectable()
 export class UserService {
@@ -55,9 +55,9 @@ export class UserService {
    * @returns {any} An observable containing the employee data
    */
   public getResults(page: Page): Observable<PagedData<User>> {
-    return this.getAll().flatMap(data => {
+    return this.getAll().flatMap((data) => {
       this.users = data;
-      return of(data).pipe(map(data => this.getPagedData(page)));
+      return of(data).pipe(map((data) => this.getPagedData(page)));
     });
   }
 
@@ -80,7 +80,7 @@ export class UserService {
         jsonObj.firstName,
         jsonObj.lastName,
         jsonObj.education,
-        jsonObj.skills,
+        jsonObj.skillIds,
         jsonObj.team,
         jsonObj.status,
         jsonObj.id
