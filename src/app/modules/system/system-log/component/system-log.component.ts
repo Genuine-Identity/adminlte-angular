@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { LoggerService } from "../../.../../../../core/services/application/logger.service";
-import { Observable } from "rxjs/Observable";
+import { Observable } from "rxjs/";
 import { PagedData, Page } from "../../../../shared/models/page";
 
 @Component({
