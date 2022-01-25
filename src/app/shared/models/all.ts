@@ -1,6 +1,6 @@
 export class Alert {
   public alertType: AlertType;
-  private alertIconMessage: string;
+  public alertIconMessage: string;
   private alertBoxMessage: string;
   constructor(alertType, alertIconMessage, alertBoxMessage) {
     this.alertType = alertType;
