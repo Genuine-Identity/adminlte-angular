@@ -27,7 +27,6 @@ import { AppRoutingModule } from './app.routing.module';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { AceEditorModule } from 'ng2-ace-editor';
 
-import { AngularFireModule } from 'angularfire2';
 import { environment } from './core/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';

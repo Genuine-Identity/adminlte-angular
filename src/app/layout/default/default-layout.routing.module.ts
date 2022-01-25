@@ -17,27 +17,25 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'login', loadChildren: () =>
-        import('../../modules/default/default.module').then(
-          (x) => x.DefaultModule
-        ),
+        path: 'login',
+        loadChildren: () =>
+          import('../../modules/default/default.module').then(
+            (x) => x.DefaultModule
+          ),
       },
-       {
-        path: 'register', loadChildren: () =>
-        import('../../modules/default/default.module').then(
-          (x) => x.DefaultModule
-        ),
+      {
+        path: 'register',
+        loadChildren: () =>
+          import('../../modules/default/default.module').then(
+            (x) => x.DefaultModule
+          ),
       },
-    ]
-  }
+    ],
+  },
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forChild(routes),
-  ],
-  exports: [
-    RouterModule
-  ]
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule],
 })
-export class DefaultLayoutRoutingModule { }
+export class DefaultLayoutRoutingModule {}
