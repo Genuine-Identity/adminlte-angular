@@ -1,10 +1,21 @@
-import { Component, Input, OnInit, Output, EventEmitter, ElementRef, Injectable } from '@angular/core';
-import { AppSettings } from '../../../../core/services/application/app-settings.service'
+import {
+  Component,
+  Input,
+  OnInit,
+  Output,
+  EventEmitter,
+  ElementRef,
+  Injectable,
+} from '@angular/core';
+import { AppSettings } from '../../../../../core/services/application/app-settings.service';
 
-
-import { Observable, of } from "rxjs";
-import { delay, map } from "rxjs/operators";
-import { PagedData, CorporateEmployee, Page } from '../../../../../shared/models/page';
+import { Observable, of } from 'rxjs';
+import { delay, map } from 'rxjs/operators';
+import {
+  PagedData,
+  CorporateEmployee,
+  Page,
+} from '../../../../../shared/models/page';
 // import { MockServerResultsService } from '../../../../core/services/application/mock-server-results.service.ts';
 import { UserService } from '../../../../../core/services/application/user.service';
 
@@ -13,7 +24,6 @@ import { UserService } from '../../../../../core/services/application/user.servi
   templateUrl: './user-details.component.html',
   styleUrls: ['./user-details.component.css'],
 })
-
 export class UserDetailsComponent implements OnInit {
   page = new Page();
   rows = new Array<CorporateEmployee>();
@@ -38,7 +48,7 @@ export class UserDetailsComponent implements OnInit {
       { prop: 'username' },
       { name: 'password' },
       { name: 'firstName' },
-      { name: 'lastName' }
+      { name: 'lastName' },
     ];
   }
 
@@ -56,7 +66,7 @@ export class UserDetailsComponent implements OnInit {
   // }
   setPageUsers(pageInfo) {
     this.page.pageNumber = pageInfo.offset;
-    this.userService.getResults(this.page).subscribe(pagedData => {
+    this.userService.getResults(this.page).subscribe((pagedData) => {
       this.page = pagedData.page;
       this.rows = pagedData.data;
     });
