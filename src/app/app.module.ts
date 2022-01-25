@@ -46,10 +46,8 @@ import { AngularFireModule } from '@angular/fire/compat';
       environment.firebaseConfig,
       'stackblitz-firebase-database'
     ),
-
   ],
   declarations: [AppComponent],
-  // providers: [{ provide: FirestoreSettingsToken, useValue: {} }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

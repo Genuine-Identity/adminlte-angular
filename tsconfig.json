@@ -15,11 +15,11 @@
     "lib": ["es2018", "dom"]
   },
   "angularCompilerOptions": {
-    "enableIvy": true,
-    "fullTemplateTypeCheck": true,
-    "strictInjectionParameters": true,
+    "enableIvy": false,
+    "fullTemplateTypeCheck": false,
+    "strictInjectionParameters": false,
     "enableI18nLegacyMessageIdFormat": false,
-    "strictInputAccessModifiers": true,
+    "strictInputAccessModifiers": false,
     "strictTemplates": true,
     "skipLibCheck": true
   }
