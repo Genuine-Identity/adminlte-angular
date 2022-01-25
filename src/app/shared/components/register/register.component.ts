@@ -132,7 +132,7 @@ export class RegisterComponent implements OnInit {
       );
   }
   sendSpamMails(thisObject: any) {
-    let message: an = {
+    let message: any = {
       id: 0,
       from: 'spammer@fakemail.com',
       fromName: 'spammer' + ' ' + 'team',
