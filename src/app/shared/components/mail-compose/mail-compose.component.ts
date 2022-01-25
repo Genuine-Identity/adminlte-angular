@@ -109,7 +109,7 @@ export class MailComposeComponent implements OnInit {
         for (let i = 0; i < data.length; i++) {
           let user = data[i];
           if (user.username === emailid) {
-            let message: Message = {
+            let message: a = {
               id: 0,
               from: thisObject.user.username,
               fromName:
