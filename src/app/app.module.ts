@@ -28,10 +28,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { AceEditorModule } from 'ng2-ace-editor';
 
 import { environment } from './core/environment';
-import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireStorageModule } from '@angular/fire/storage';
-import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireModule } from '@angular/fire/compat';
 
 @NgModule({
   imports: [
@@ -50,12 +47,9 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
       'stackblitz-firebase-database'
     ),
 
-    AngularFirestoreModule, // firestore
-    // AngularFireAuthModule, // auth
-    AngularFireStorageModule, // storage
   ],
   declarations: [AppComponent],
-  providers: [{ provide: FirestoreSettingsToken, useValue: {} }],
+  // providers: [{ provide: FirestoreSettingsToken, useValue: {} }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
