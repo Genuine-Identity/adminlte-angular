@@ -89,10 +89,10 @@ const routes: Routes = [
       },
       {
         path: 'system',
-        loadChildren: '../../modules/system/system.module#SystemModule',
+        // loadChildren: '../../modules/system/system.module#SystemModule',
         loadChildren: () =>
           import('../../modules/system/system.module').then(
-            (x) => x.SearchModule
+            (x) => x.SystemModule
           ),
         canActivate: [AuthGuard],
         data: {
