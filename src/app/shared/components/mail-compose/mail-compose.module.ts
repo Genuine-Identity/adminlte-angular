@@ -12,14 +12,10 @@ import { NgSelectModule } from '@ng-select/ng-select';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    AceEditorModule,
-    NgSelectModule
+    // AceEditorModule,
+    NgSelectModule,
   ],
-  declarations: [
-    MailComposeComponent,
-  ],
-  exports: [
-    MailComposeComponent,
-  ]
+  declarations: [MailComposeComponent],
+  exports: [MailComposeComponent],
 })
-export class MailComposeModule { } 
+export class MailComposeModule {}
