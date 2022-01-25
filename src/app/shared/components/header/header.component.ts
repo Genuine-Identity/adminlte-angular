@@ -17,10 +17,10 @@ import { LoggerService } from '../../../core/services/application/logger.service
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  private user: User;
-  private tasks: Task[];
-  private messages: Message[];
-  private notifications: Notification[];
+  public user: User;
+  public tasks: Task[];
+  public messages: a[];
+  public notifications: Notification[];
 
   constructor(
     private router: Router,
