@@ -26,7 +26,7 @@ import { UserService } from '../../../../../core/services/application/user.servi
 })
 export class UserDetailsComponent implements OnInit {
   page = new Page();
-  rows = new Array<CorporateEmployee>();
+  rows := new Array<CorporateEmployee>();
   editing = {};
 
   columns = [];
