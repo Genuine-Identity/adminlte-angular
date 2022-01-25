@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { SearchService } from "../../../../core/services/application/search.service";
-import { Subject } from "rxjs/Subject";
+import { Subject } from "rxjs/";
 @Component({
   selector: "app-search-panel",
   templateUrl: "./search-panel.component.html",
