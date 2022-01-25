@@ -1,10 +1,18 @@
 import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
-import { NavigationCancel, Event, NavigationEnd, NavigationError, NavigationStart, Router, ActivatedRoute } from '@angular/router';
+import {
+  NavigationCancel,
+  Event,
+  NavigationEnd,
+  NavigationError,
+  NavigationStart,
+  Router,
+  ActivatedRoute,
+} from '@angular/router';
 @Component({
   selector: 'app-content-header',
   templateUrl: './content-header.component.html',
   styleUrls: ['./content-header.component.css'],
-   encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class ContentHeaderComponent implements OnInit {
   breadcrumb: any;
@@ -17,12 +25,9 @@ export class ContentHeaderComponent implements OnInit {
         while (route.firstChild) route = route.firstChild;
         return route;
       })
-      .subscribe((event:) => {
+      .subscribe((event: any) => {
         this.breadcrumb = event.data._value;
       });
   }
-  ngOnInit() {
-
-  }
-
+  ngOnInit() {}
 }
