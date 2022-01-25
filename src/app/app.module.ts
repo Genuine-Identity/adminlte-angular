@@ -17,6 +17,9 @@ import 'rxjs/BehaviorSubject';
 import '../../src/assets/javascript/adminlte.ts';
 import '../../src/assets/javascript/demo.ts';
 
+
+import { ChartsModule } from 'ng2-charts';
+
 import { AppComponent } from './app.component';
 
 import { CoreModule } from './core/core.module';
@@ -43,6 +46,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     CoreModule,
     NgSelectModule,
     AceEditorModule,
+    
     AngularFireModule.initializeApp(
       environment.firebaseConfig,
       'stackblitz-firebase-database'
