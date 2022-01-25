@@ -1,8 +1,8 @@
 import { Component, Input, OnInit, Output, EventEmitter } from "@angular/core";
 import { AppSettings } from "../../../../core/services/application/app-settings.service";
-import { ChartOptions, ChartType, ChartDataSets } from "chart.js";
+import { ChartOptions, ChartType, ChartDataset } from "chart.js";
 
-import { Label } from "ng2-charts";
+import { Label } from "ng2-charts"; 
 import { User } from "../../../../shared/models/user";
 import { Message } from "../../../../shared/models/message";
 import { LocalStorageService } from "../../../../core/services/helpers/local-storage.service";
