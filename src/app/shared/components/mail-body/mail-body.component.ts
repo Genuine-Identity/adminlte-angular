@@ -36,7 +36,7 @@ export class MailBodyComponent implements OnInit {
         while (route.firstChild) route = route.firstChild;
         return route;
       })
-      .subscribe((event) => {
+      .subscribe((event:) => {
         this.breadcrumb = event.data._value;
       });
   }
