@@ -8,7 +8,7 @@ import { MessageService } from './core/services/application/message.service';
 import { SkillService } from './core/services/application/skill.service';
 import { LoggerService } from './core/services/application/logger.service';
 import {
-  NavigationCancel,
+  NavigationCancel, 
   Event,
   NavigationEnd,
   NavigationError,
