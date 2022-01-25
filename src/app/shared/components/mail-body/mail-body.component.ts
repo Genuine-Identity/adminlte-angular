@@ -35,11 +35,11 @@ import { MessageService } from '../../../core/services/application/message.servi
 })
 export class MailBodyComponent implements OnInit {
   breadcrumb: any;
-  private message: Message;
-  private user: User;
-  private id: number;
-  private submitted = false;
-  private userDetailsForm: FormGroup;
+  public message: Message;
+  public user: User;
+  public id: number;
+  public submitted = false;
+  public userDetailsForm: FormGroup;
   skillIds: any[];
 
   constructor(

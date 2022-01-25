@@ -14,7 +14,7 @@
 							<ng-template ngx-datatable-header-template>
 								User Name
 							</ng-template>
-							<ng-template>
+							<ng-template let-value="value">
 								{{value}}
 							</ng-template>
 						</ngx-datatable-column>
@@ -23,7 +23,7 @@
 							<ng-template ngx-datatable-header-template>
 								Description
 							</ng-template>
-							<ng-template>
+							<ng-template let-value="value">
 								{{value}}
 							</ng-template>
 						</ngx-datatable-column>
@@ -32,7 +32,7 @@
 							<ng-template ngx-datatable-header-template>
 								Severity
 							</ng-template>
-							<ng-template>
+							<ng-template >
 								{{value}}
 							</ng-template>
 						</ngx-datatable-column>
