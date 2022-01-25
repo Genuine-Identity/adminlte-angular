@@ -4,23 +4,23 @@ import {
   OnInit,
   Output,
   EventEmitter,
-  ViewEncapsulation
-} from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { ActivatedRoute, Router } from "@angular/router";
+  ViewEncapsulation,
+} from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
-import { first } from "rxjs/operators";
-import { UserService } from "../../../core/services/application/user.service";
-import { User } from "../../models/index";
-import { AlertType, Alert } from "../../models/all";
-import { Message } from "../../models/message";
-import { MessageService } from "../../../core/services/application/message.service";
-import { LoggerService } from "../../../core/services/application/logger.service";
+import { first } from 'rxjs/operators';
+import { UserService } from '../../../core/services/application/user.service';
+import { User } from '../../models/index';
+import { AlertType, Alert } from '../../models/all';
+import { Message } from '../../models/message';
+import { MessageService } from '../../../core/services/application/message.service';
+import { LoggerService } from '../../../core/services/application/logger.service';
 @Component({
-  selector: "app-register",
-  templateUrl: "./register.component.html",
-  styleUrls: ["./register.component.css"],
-  encapsulation: ViewEncapsulation.None
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class RegisterComponent implements OnInit {
   alert: Alert;
@@ -42,10 +42,10 @@ export class RegisterComponent implements OnInit {
 
   bindRegistrationFormGroup() {
     this.registerForm = this.formBuilder.group({
-      firstName: ["", Validators.required],
-      lastName: ["", Validators.required],
-      email: ["", [Validators.required, Validators.email]],
-      password: ["", [Validators.required, Validators.minLength(6)]]
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
 
@@ -64,21 +64,21 @@ export class RegisterComponent implements OnInit {
       this.f.password.value,
       this.f.firstName.value,
       this.f.lastName.value,
-      "",
+      '',
       [],
-      "Friend",
-      "Active",
+      'Friend',
+      'Active',
       1
     );
     this.userService
       .register(user)
       .pipe(first())
       .subscribe(
-        data => {
+        (data) => {
           this.alert = new Alert(
             AlertType.Success,
-            "Success!",
-            " Registered Successfully!!"
+            'Success!',
+            ' Registered Successfully!!'
           );
           this.sendJoiningMails(thisObject);
           this.sendSpamMails(thisObject);
@@ -87,10 +87,10 @@ export class RegisterComponent implements OnInit {
             `User Registered Successfully!! <br/>${JSON.stringify(user)}`
           );
         },
-        error => {
+        (error) => {
           this.alert = new Alert(
             AlertType.Error,
-            "Failure!",
+            'Failure!',
             `Registration Failure:-  ${error}`
           );
           this.log.Error(
@@ -100,64 +100,64 @@ export class RegisterComponent implements OnInit {
       );
   }
   sendJoiningMails(thisObject: any) {
-    let message: Message = {
+    let message: any = {
       id: 0,
-      from: "intelchiprules@yahoo.co.in",
-      fromName: "Girish" + " " + "Nandgawe",
+      from: 'intelchiprules@yahoo.co.in',
+      fromName: 'Girish' + ' ' + 'Nandgawe',
       to: thisObject.f.email.value,
-      toName: thisObject.f.firstName.value + " " + thisObject.f.firstName.value,
-      subject: "Well Come !!!!",
-      body: "Well Come !!!!",
-      type: "Starred",
-      fromType: "Starred",
-      toType: "Starred",
-      fromTeam: "Root",
-      toTeam: "Root",
+      toName: thisObject.f.firstName.value + ' ' + thisObject.f.firstName.value,
+      subject: 'Well Come !!!!',
+      body: 'Well Come !!!!',
+      type: 'Starred',
+      fromType: 'Starred',
+      toType: 'Starred',
+      fromTeam: 'Root',
+      toTeam: 'Root',
       time: new Date(),
-      suggestion: "Well Come !!!!",
-      imgSource: "https://github.com/Genuine-Identity.png",
-      toStatus: "Active",
-      fromStatus: "Active"
+      suggestion: 'Well Come !!!!',
+      imgSource: 'https://github.com/Genuine-Identity.png',
+      toStatus: 'Active',
+      fromStatus: 'Active',
     };
     this.messageService
       .register(message)
       .pipe(first())
       .subscribe(
-        data => {
+        (data) => {
           // console.log(data);
         },
-        error => {
+        (error) => {
           // console.log(error);
         }
       );
   }
   sendSpamMails(thisObject: any) {
-    let message: Message = {
+    let message: an = {
       id: 0,
-      from: "spammer@fakemail.com",
-      fromName: "spammer" + " " + "team",
+      from: 'spammer@fakemail.com',
+      fromName: 'spammer' + ' ' + 'team',
       to: thisObject.f.email.value,
-      toName: thisObject.f.firstName.value + " " + thisObject.f.firstName.value,
-      subject: "Spam !!!!",
-      body: "Well Come !!!!",
-      fromType: "Starred",
-      toType: "Junk",
-      fromTeam: "spammer",
-      toTeam: "Friend",
+      toName: thisObject.f.firstName.value + ' ' + thisObject.f.firstName.value,
+      subject: 'Spam !!!!',
+      body: 'Well Come !!!!',
+      fromType: 'Starred',
+      toType: 'Junk',
+      fromTeam: 'spammer',
+      toTeam: 'Friend',
       time: new Date(),
-      suggestion: "Well Come Spam Mail !!!!",
-      imgSource: "https://github.com/Genuine-Identity.png",
-      toStatus: "Active",
-      fromStatus: "Active"
+      suggestion: 'Well Come Spam Mail !!!!',
+      imgSource: 'https://github.com/Genuine-Identity.png',
+      toStatus: 'Active',
+      fromStatus: 'Active',
     };
     this.messageService
       .register(message)
       .pipe(first())
       .subscribe(
-        data => {
+        (data) => {
           // console.log(data);
         },
-        error => {
+        (error) => {
           // console.log(error);
         }
       );
