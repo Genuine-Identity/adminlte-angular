@@ -8,7 +8,7 @@ import { MessageService } from '../../../core/services/application/message.servi
 import { NotificationService } from '../../../core/services/application/notification.service';
 import { TaskService } from '../../../core/services/application/task.service';
 
-import { User, Task, Message, } from '../../models/index';
+import { User, Task, Message, Notification } from '../../models/index';
 import { LoggerService } from '../../../core/services/application/logger.service';
 
 @Component({
