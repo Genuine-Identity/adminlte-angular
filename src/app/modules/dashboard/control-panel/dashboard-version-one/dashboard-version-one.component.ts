@@ -31,7 +31,7 @@ export class DashbardVersionOneComponent implements OnInit {
   public barChartData: ChartDataset[] = [];
 
   public barChartLegend = true;
-  public barChartType: ChartType = 'bar';
+  public barChartType: any = 'bar';
   private sendMailRecords: any;
   private receivedMailRecords: any;
 
