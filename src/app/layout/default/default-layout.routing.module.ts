@@ -10,13 +10,23 @@ const routes: Routes = [
     component: DefaultLayoutComponent,
     children: [
       {
-        path: '', loadChildren: '../../modules/default/default.module#DefaultModule',
+        // path: '', loadChildren: '../../modules/default/default.module#DefaultModule',
+        loadChildren: () =>
+          import('../../modules/default/default.module').then(
+            (x) => x.DefaultModule
+          ),
       },
       {
-        path: 'login', loadChildren: '../../modules/default/default.module#DefaultModule',
+        path: 'login', loadChildren: () =>
+        import('../../modules/default/default.module').then(
+          (x) => x.DefaultModule
+        ),
       },
        {
-        path: 'register', loadChildren: '../../modules/default/default.module#DefaultModule',
+        path: 'register', loadChildren: () =>
+        import('../../modules/default/default.module').then(
+          (x) => x.DefaultModule
+        ),
       },
     ]
   }
