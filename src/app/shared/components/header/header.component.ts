@@ -19,7 +19,7 @@ import { LoggerService } from '../../../core/services/application/logger.service
 export class HeaderComponent implements OnInit {
   public user: User;
   public tasks: Task[];
-  public messages: a[];
+  public messages: any[];
   public notifications: Notification[];
 
   constructor(
