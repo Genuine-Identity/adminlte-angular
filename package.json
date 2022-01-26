@@ -38,7 +38,6 @@
     "jquery": "^3.6.0",
     "lodash": "^4.17.21",
     "lodash.templatesettings": "^4.2.0",
-    "ng2-ace-editor": "^0.3.9",
     "ng2-charts": "^3.0.8",
     "popper.js": "^1.16.1",
     "rxfire": "^6.0.3",
