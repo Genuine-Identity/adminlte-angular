@@ -13,7 +13,7 @@ import 'ionicons';
 import 'lodash';
 import 'rxjs';
 import 'rxjs-compat';
-import 'rxjs/BehaviorSubject';
+import 'rxjs/';
 import '../../src/assets/javascript/adminlte.ts';
 import '../../src/assets/javascript/demo.ts';
 
