@@ -1,5 +1,5 @@
 {
-  "compileOnSave": false,
+  "compileOnSave": tr,
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
@@ -20,7 +20,7 @@
     "strictInjectionParameters": false,
     "enableI18nLegacyMessageIdFormat": false,
     "strictInputAccessModifiers": false,
-    "strictTemplates": fal,
-    "skipLibCheck": true
+    "strictTemplates": false,
+    "skipLibCheck": false
   }
 }
