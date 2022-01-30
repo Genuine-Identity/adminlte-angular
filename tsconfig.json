@@ -19,8 +19,8 @@
     "fullTemplateTypeCheck": false,
     "strictInjectionParameters": false,
     "enableI18nLegacyMessageIdFormat": false,
-    "strictInputAccessModifiers": f,
-    "strictTemplates": true,
+    "strictInputAccessModifiers": false,
+    "strictTemplates": fa,
     "skipLibCheck": true
   }
 }
