@@ -20,7 +20,7 @@
     "strictInjectionParameters": false,
     "enableI18nLegacyMessageIdFormat": false,
     "strictInputAccessModifiers": false,
-    "strictTemplates": fa,
+    "strictTemplates": fal,
     "skipLibCheck": true
   }
 }
