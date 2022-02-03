@@ -13,7 +13,7 @@ import {
 import { map } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { first, flatMap } from 'rxjs/operators';
-import { Observable } from 'rxjs/Observable';
+import {  } from 'rxjs/Observable';
 
 import { User } from '../../../shared/models/index';
 import {
