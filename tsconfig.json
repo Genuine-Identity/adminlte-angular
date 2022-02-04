@@ -12,7 +12,7 @@
     "importHelpers": true,
     "target": "es2015",
     "typeRoots": ["node_modules/@types"],
-    "lib": ["es2019", "DOM", "ES6", "ESNext"]
+    "lib": ["es201", "DOM", "ES6", "ESNext"]
   },
   "angularCompilerOptions": {
     "enableIvy": false,
