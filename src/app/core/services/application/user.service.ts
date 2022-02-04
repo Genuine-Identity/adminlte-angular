@@ -11,9 +11,8 @@ import {
 } from '@angular/core';
 
 import { map } from 'rxjs/operators';
-import { of } from 'rxjs';
-import { first, flatMap } from 'rxjs/operators';
-import {  } from 'rxjs/Observable';
+import { of, Observable } from 'rxjs';
+import { first, mergeMap } from 'rxjs/operators';
 
 import { User } from '../../../shared/models/index';
 import {
@@ -56,7 +55,7 @@ export class UserService {
    * @returns {any} An observable containing the employee data
    */
   public getResults(page: Page): Observable<PagedData<User>> {
-    return this.getAll().flatMap((data) => {
+    return this.getAll().mergeMap((data) => {
       this.users = data;
       return of(data).pipe(map((data) => this.getPagedData(page)));
     });
