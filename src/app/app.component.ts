@@ -29,8 +29,8 @@ export class AppComponent implements OnInit {
   constructor(
     private userService: UserService,
     private skillService: SkillService,
-    private router: Router,
-    private route: ActivatedRoute,
+    // private router: Router,
+    // private route: ActivatedRoute,
     private messageService: MessageService,
     private localStorage: LocalStorageService,
     private log: LoggerService
@@ -41,7 +41,7 @@ export class AppComponent implements OnInit {
     // localStorage.clear();
     // this.localStorage.setItem('db.message', null);
     // this.localStorage.setItem('db.messages', null);
-    this.initFakeBackendDatabase();
+    // this.initFakeBackendDatabase();
   }
 
   private initFakeBackendDatabase(): void {
