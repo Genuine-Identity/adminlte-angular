@@ -13,8 +13,8 @@ import {
   NavigationEnd,
   NavigationError,
   NavigationStart,
-  Router,
-  ActivatedRoute,
+  // Router,
+  // ActivatedRoute,
 } from '@angular/router';
 import { Message } from './shared/models/message';
 
@@ -289,7 +289,7 @@ export class AppComponent implements OnInit {
     if (event instanceof NavigationEnd) {
       setTimeout(() => {
         console.log('this._loadingBar.complete();');
-        console.log(this.route.snapshot.data);
+        // console.log(this.route.snapshot.data);
       }, 500);
     }
     if (event instanceof NavigationCancel) {

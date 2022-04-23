@@ -6,10 +6,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
 import { environment } from './app/core/environment';
 
-if (environment.production) {
-  console.log('a');
-  enableProdMode();
-}
+ 
 platformBrowserDynamic()
   .bootstrapModule(AppModule)
   .then((ref) => {

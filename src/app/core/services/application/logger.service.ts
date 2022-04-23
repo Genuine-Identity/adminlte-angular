@@ -75,7 +75,7 @@ export class LoggerService {
     // });
   }
   public get(): Observable<any[]> {
-    return null;
+    return null as any;
   }
 
   // public get(): Observable<any[]> {
