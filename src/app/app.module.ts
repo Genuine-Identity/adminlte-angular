@@ -23,10 +23,10 @@ import { NgSelectModule } from '@ng-select/ng-select';
     FormsModule,
     HttpClientModule,
     // AppRoutingModule,
-    NgxDatatableModule,
-    ReactiveFormsModule,
+    // NgxDatatableModule,
+    // ReactiveFormsModule,
     CoreModule,
-    NgSelectModule,
+    // NgSelectModule,
     // AceEditorModule,
     NgChartsModule,
     // AngularFireModule.initializeApp(
