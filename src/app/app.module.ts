@@ -35,7 +35,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule,
+    // AppRoutingModule,
     NgxDatatableModule,
     ReactiveFormsModule,
     CoreModule,
