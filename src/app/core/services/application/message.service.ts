@@ -12,7 +12,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Message } from '../../../shared/models/message';
 import { map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
-import { first } from 'rxjs/operators';
+import { first, flatMap } from 'rxjs/operators';
 
 import { User } from '../../../shared/models/index';
 
@@ -49,6 +49,7 @@ export class MessageService {
   public getAll(): Observable<Message[]> {
     return of(this.getMessage());
   }
+
   public getMessages(
     page: Page,
     id: string,
@@ -61,6 +62,7 @@ export class MessageService {
       })
     );
   }
+
   public getFromMessages(
     page: Page,
     id: string
@@ -81,7 +83,10 @@ export class MessageService {
 
   public getResults(page: Page): Observable<PagedData<Message>> {
     return this.getAll().pipe(
-
+      flatMap((data) => {
+        this.messages = data;
+        return of(data).pipe(map((data) => this.getPagedData(page)));
+      })
     );
   }
   /**
