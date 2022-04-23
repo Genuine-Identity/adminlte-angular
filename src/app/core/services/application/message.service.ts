@@ -47,27 +47,31 @@ export class MessageService {
   }
 
   public getAll(): Observable<Message[]> {
-    return .of(this.getMessage());
+    return of(this.getMessage());
   }
   public getMessages(
     page: Page,
     id: string,
     mailType: string
   ): Observable<PagedData<Message>> {
-    return this.getByToId(id, mailType).flatMap((data) => {
-      this.messages = data;
-      return of(data).pipe(map((data) => this.getPagedData(page)));
-    });
+    return this.getByToId(id, mailType).pipe(
+      flatMap((data) => {
+        this.messages = data;
+        return of(data).pipe(map((data) => this.getPagedData(page)));
+      })
+    );
   }
   public getFromMessages(
     page: Page,
     id: string
   ): Observable<PagedData<Message>> {
     console.log('a');
-    return this.getByFromId(id).flatMap((data) => {
-      this.messages = data;
-      return of(data).pipe(map((data) => this.getPagedData(page)));
-    });
+    return this.getByFromId(id).pipe(
+      flatMap((data) => {
+        this.messages = data;
+        return of(data).pipe(map((data) => this.getPagedData(page)));
+      })
+    );
   }
 
   update(message: Message, type: string) {
@@ -76,10 +80,9 @@ export class MessageService {
   }
 
   public getResults(page: Page): Observable<PagedData<Message>> {
-    return this.getAll().flatMap((data) => {
-      this.messages = data;
-      return of(data).pipe(map((data) => this.getPagedData(page)));
-    });
+    return this.getAll().pipe(
+
+    );
   }
   /**
    * Package companyData into a PagedData object based on the selected Page
