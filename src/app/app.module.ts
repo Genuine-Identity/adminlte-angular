@@ -4,18 +4,18 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-import 'jquery';
-import 'bootstrap';
-import 'chart.js';
-import '@ng-bootstrap/ng-bootstrap';
+// import 'jquery';
+// import 'bootstrap';
+// import 'chart.js';
+// import '@ng-bootstrap/ng-bootstrap';
 
-import 'ionicons';
-import 'lodash';
-import 'rxjs';
-import 'rxjs-compat';
-import 'rxjs/';
-import '../../src/assets/javascript/adminlte.ts';
-import '../../src/assets/javascript/demo.ts';
+// import 'ionicons';
+// import 'lodash';
+// import 'rxjs';
+// import 'rxjs-compat';
+// import 'rxjs/';
+// import '../../src/assets/javascript/adminlte.ts';
+// import '../../src/assets/javascript/demo.ts';
 
 import { NgChartsModule } from 'ng2-charts';
 
@@ -42,10 +42,10 @@ import { AngularFireModule } from '@angular/fire/compat';
     NgSelectModule,
     // AceEditorModule,
     NgChartsModule,
-    AngularFireModule.initializeApp(
-      environment.firebaseConfig,
-      'stackblitz-firebase-database'
-    ),
+    // AngularFireModule.initializeApp(
+    //   environment.firebaseConfig,
+    //   'stackblitz-firebase-database'
+    // ),
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent],
