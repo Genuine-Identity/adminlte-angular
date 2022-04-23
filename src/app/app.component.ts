@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { first } from 'rxjs/operators';
-import * as jQuery from 'jquery';
+// import * as jQuery from 'jquery';
 
 import { User } from './shared/models/index';
 import { UserService } from './core/services/application/user.service';
@@ -16,7 +16,7 @@ import {
   // Router,
   // ActivatedRoute,
 } from '@angular/router';
-import { Message } from './shared/models/message';
+// import { Message } from './shared/models/message';
 
 import { LocalStorageService } from './core/services/helpers/local-storage.service';
 
