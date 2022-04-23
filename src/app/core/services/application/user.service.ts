@@ -55,10 +55,12 @@ export class UserService {
    * @returns {any} An observable containing the employee data
    */
   public getResults(page: Page): Observable<PagedData<User>> {
-    return this.getAll().mergeMap((data) => {
-      this.users = data;
-      return of(data).pipe(map((data) => this.getPagedData(page)));
-    });
+    return this.getAll().pipe(
+      mergeMap((data) => {
+        this.users = data;
+        return of(data).pipe(map((data) => this.getPagedData(page)));
+      })
+    );
   }
 
   /**

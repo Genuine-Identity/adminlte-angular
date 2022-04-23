@@ -47,7 +47,7 @@ export class MessageService {
   }
 
   public getAll(): Observable<Message[]> {
-    return Observable.of(this.getMessage());
+    return .of(this.getMessage());
   }
   public getMessages(
     page: Page,
