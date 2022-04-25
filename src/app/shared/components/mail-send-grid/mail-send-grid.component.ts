@@ -7,7 +7,7 @@ import {
   ElementRef,
   Injectable,
 } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of ,} from 'rxjs';
 import { delay, map } from 'rxjs/operators';
 import { MessageService } from '../../../core/services/application/message.service';
 import { User } from '../../../shared/models/user';
@@ -53,12 +53,14 @@ export class MailSendGridComponent implements OnInit {
     this.page.pageNumber = 0;
     this.page.size = 10;
     this.router.events
-      .filter((event) => event instanceof NavigationEnd)
-      .map(() => this.route)
-      .map((route) => {
-        while (route.firstChild) route = route.firstChild;
-        return route;
-      })
+      .pipe(
+        filter((event) => event instanceof NavigationEnd),
+        map(() => this.route),
+        map((route) => {
+          while (route.firstChild) route = route.firstChild;
+          return route;
+        })
+      )
       .subscribe((event: any) => {
         this.breadcrumb = event.data._value;
       });
