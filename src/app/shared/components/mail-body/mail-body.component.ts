@@ -27,7 +27,7 @@ import { User } from '../../../shared/models/user';
 import { Message } from '../../../shared/models/message';
 import { LocalStorageService } from '../../../core/services/helpers/local-storage.service';
 import { MessageService } from '../../../core/services/application/message.service';
-import { filter, } from 'rxjs';
+import { filter, map } from 'rxjs';
 
 @Component({
   selector: 'app-mail-body',
@@ -36,7 +36,7 @@ import { filter, } from 'rxjs';
 })
 export class MailBodyComponent implements OnInit {
   breadcrumb: any;
-  public message: Message;
+  public message: a;
   public user: User;
   public id: number;
   public submitted = false;
@@ -76,11 +76,9 @@ export class MailBodyComponent implements OnInit {
       console.log("params['id']");
       console.log(params['id']);
       if (params['id']) {
-        this.messageService
-          .getMessageById(params['id'])
-          .subscribe((message: Message) => {
-            this.message = message;
-          });
+        this.messageService.getMessageById(params['id']).subscribe((data) => {
+          this.message = data;
+        });
       }
     });
   }
