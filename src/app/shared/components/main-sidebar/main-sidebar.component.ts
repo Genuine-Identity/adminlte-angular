@@ -146,7 +146,7 @@ export class MainSidebarComponent implements OnInit, AfterViewInit {
       return this;
     };
     $(Selector.data).each(function () {
-      Plugin.call($(this,));
+      Plugin.call($(this), null);
     });
   }
 

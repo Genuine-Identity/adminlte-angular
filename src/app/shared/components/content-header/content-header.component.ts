@@ -8,6 +8,8 @@ import {
   Router,
   ActivatedRoute,
 } from '@angular/router';
+import { filter, map } from 'rxjs';
+
 @Component({
   selector: 'app-content-header',
   templateUrl: './content-header.component.html',
@@ -19,12 +21,14 @@ export class ContentHeaderComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private router: Router) {
     this.router.events
-      .filter((event) => event instanceof NavigationEnd)
-      .map(() => this.route)
-      .map((route) => {
-        while (route.firstChild) route = route.firstChild;
-        return route;
-      })
+      .pipe(
+        filter((event) => event instanceof NavigationEnd),
+        map(() => this.route),
+        map((route) => {
+          while (route.firstChild) route = route.firstChild;
+          return route;
+        })
+      )
       .subscribe((event: any) => {
         this.breadcrumb = event.data._value;
       });

@@ -43,7 +43,7 @@
                 >
                   <span
                     *ngIf="
-                      f.firstName.errors.required ||
+                      f.firstName.errors?.required ||
                       (submitted && f.firstName.errors)
                     "
                     class="help-block"
@@ -81,7 +81,7 @@
                 >
                   <span
                     *ngIf="
-                      f.lastName.errors.required ||
+                      f.lastName.errors?.required ||
                       (submitted && f.lastName.errors)
                     "
                     class="help-block"
@@ -117,10 +117,10 @@
                     (submitted && f.email.errors)
                   "
                 >
-                  <span *ngIf="f.email.errors.required" class="help-block"
+                  <span *ngIf="f.email.errors?.required" class="help-block"
                     >Email is required</span
                   >
-                  <span *ngIf="f.email.errors.email" class="help-block"
+                  <span *ngIf="f.email.errors?.email" class="help-block"
                     >Email must be a valid email address</span
                   >
                 </div>
@@ -155,10 +155,10 @@
                   "
                   class="invalid-feedback"
                 >
-                  <span *ngIf="f.password.errors.required" class="help-block"
+                  <span *ngIf="f.password.errors?.required" class="help-block"
                     >Password is required</span
                   >
-                  <span *ngIf="f.password.errors.minlength" class="help-block"
+                  <span *ngIf="f.password.errors?.minlength" class="help-block"
                     >Password must be at least 6 characters</span
                   >
                 </div>
