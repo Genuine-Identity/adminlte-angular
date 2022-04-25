@@ -29,7 +29,7 @@ export class UserDetailsComponent implements OnInit {
   rows: any = new Array<CorporateEmployee>();
   editing = {};
 
-  columns = [];
+  columns: any[] = [];
 
   loadingIndicator: boolean = false;
   reorderable: boolean = true;
