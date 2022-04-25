@@ -27,7 +27,7 @@ export class UserDetailComponent implements OnInit {
   id: number;
   submitted = false;
   alert: Alert;
-  user: User;
+  user: a;
   userDetailsForm: FormGroup;
   skills: NgOption[];
   skillIds: any[];
@@ -49,7 +49,7 @@ export class UserDetailComponent implements OnInit {
   bindDetails() {
     this.route.params.subscribe((params) => {
       if (params['id']) {
-        this.userService.getById(params['id']).subscribe((data: ) => {
+        this.userService.getById(params['id']).subscribe((data) => {
           console.log(data);
           this.user = data;
           this.userDetailsForm.patchValue(data);
