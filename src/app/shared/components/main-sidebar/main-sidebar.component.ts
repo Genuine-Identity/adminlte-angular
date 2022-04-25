@@ -5,18 +5,18 @@ import {
   Output,
   EventEmitter,
   AfterViewInit,
-  ElementRef
-} from "@angular/core";
+  ElementRef,
+} from '@angular/core';
 
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import * as JQuery from "jquery";
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import * as JQuery from 'jquery';
 const $ = JQuery.default;
-import { Router } from "@angular/router";
-import { LoggerService } from "../../../core/services/application/logger.service";
+import { Router } from '@angular/router';
+import { LoggerService } from '../../../core/services/application/logger.service';
 @Component({
-  selector: "app-main-sidebar",
-  templateUrl: "./main-sidebar.component.html",
-  styleUrls: ["./main-sidebar.component.css"]
+  selector: 'app-main-sidebar',
+  templateUrl: './main-sidebar.component.html',
+  styleUrls: ['./main-sidebar.component.css'],
 })
 export class MainSidebarComponent implements OnInit, AfterViewInit {
   searchForm: FormGroup;
@@ -32,7 +32,7 @@ export class MainSidebarComponent implements OnInit, AfterViewInit {
   }
   bindSearchFormGroup() {
     this.searchForm = this.formBuilder.group({
-      search: ["", Validators.required]
+      search: ['', Validators.required],
     });
   }
   get f() {
@@ -42,32 +42,32 @@ export class MainSidebarComponent implements OnInit, AfterViewInit {
     this.initializeTree();
   }
   initializeTree() {
-    "use strict";
-    var DataKey = "lte.tree";
+    'use strict';
+    var DataKey = 'lte.tree';
     var Default = {
       animationSpeed: 500,
       accordion: true,
       followLink: false,
-      trigger: ".treeview a"
+      trigger: '.treeview a',
     };
     var Selector = {
-      tree: ".tree",
-      treeview: ".treeview",
-      treeviewMenu: ".treeview-menu",
-      open: ".menu-open, .active",
-      li: "li",
+      tree: '.tree',
+      treeview: '.treeview',
+      treeviewMenu: '.treeview-menu',
+      open: '.menu-open, .active',
+      li: 'li',
       data: '[data-widget="tree"]',
-      active: ".active"
+      active: '.active',
     };
     var ClassName = {
-      open: "menu-open",
-      tree: "tree"
+      open: 'menu-open',
+      tree: 'tree',
     };
     var Event = {
-      collapsed: "collapsed.tree",
-      expanded: "expanded.tree"
+      collapsed: 'collapsed.tree',
+      expanded: 'expanded.tree',
     };
-    var Tree = function(element, options) {
+    var Tree = function (element, options) {
       this.element = element;
       this.options = options;
       $(this.element).addClass(ClassName.tree);
@@ -76,14 +76,14 @@ export class MainSidebarComponent implements OnInit, AfterViewInit {
       );
       this._setUpListeners();
     };
-    Tree.prototype.toggle = function(link, event) {
+    Tree.prototype.toggle = function (link, event) {
       var treeviewMenu = link.next(Selector.treeviewMenu);
       var parentLi = link.parent();
       var isOpen = parentLi.hasClass(ClassName.open);
       if (!parentLi.is(Selector.treeview)) {
         return;
       }
-      if (!this.options.followLink || link.attr("href") === "#") {
+      if (!this.options.followLink || link.attr('href') === '#') {
         event.preventDefault();
       }
       if (isOpen) {
@@ -92,7 +92,7 @@ export class MainSidebarComponent implements OnInit, AfterViewInit {
         this.expand(treeviewMenu, parentLi);
       }
     };
-    Tree.prototype.expand = function(tree, parent) {
+    Tree.prototype.expand = function (tree, parent) {
       var expandedEvent = $.Event(Event.expanded);
       if (this.options.accordion) {
         var openMenuLi = parent.siblings(Selector.open);
@@ -102,29 +102,29 @@ export class MainSidebarComponent implements OnInit, AfterViewInit {
       parent.addClass(ClassName.open);
       tree.slideDown(
         this.options.animationSpeed,
-        function() {
+        function () {
           $(this.element).trigger(expandedEvent);
         }.bind(this)
       );
     };
-    Tree.prototype.collapse = function(tree, parentLi) {
+    Tree.prototype.collapse = function (tree, parentLi) {
       var collapsedEvent = $.Event(Event.collapsed);
       parentLi.removeClass(ClassName.open);
       tree.slideUp(
         this.options.animationSpeed,
-        function() {
+        function () {
           $(this.element).trigger(collapsedEvent);
         }.bind(this)
       );
     };
-    Tree.prototype._setUpListeners = function() {
+    Tree.prototype._setUpListeners = function () {
       var that = this;
-      $(this.element).on("click", this.options.trigger, function(event) {
+      $(this.element).on('click', this.options.trigger, function (event) {
         that.toggle($(this), event);
       });
     };
     function Plugin(option) {
-      return this.each(function() {
+      return this.each(function () {
         var $this = $(this);
         var data = $this.data(DataKey);
         if (!data) {
@@ -132,7 +132,7 @@ export class MainSidebarComponent implements OnInit, AfterViewInit {
             {},
             Default,
             $this.data(),
-            typeof option == "object" && option
+            typeof option == 'object' && option
           );
           $this.data(DataKey, new Tree($this, options));
         }
@@ -141,12 +141,12 @@ export class MainSidebarComponent implements OnInit, AfterViewInit {
     var old = $.fn.tree;
     $.fn.tree = Plugin;
     $.fn.tree.Constructor = Tree;
-    $.fn.tree.noConflict = function() {
+    $.fn.tree.noConflict = function () {
       $.fn.tree = old;
       return this;
     };
-    $(Selector.data).each(function() {
-      Plugin.call($(this));
+    $(Selector.data).each(function () {
+      Plugin.call($(this,));
     });
   }
 
@@ -155,8 +155,8 @@ export class MainSidebarComponent implements OnInit, AfterViewInit {
       return;
     } else {
       this.log.Information(`Keyword Searched - ${this.f.search.value}`);
-      this.router.navigate(["/search"], {
-        queryParams: { q: this.f.search.value }
+      this.router.navigate(['/search'], {
+        queryParams: { q: this.f.search.value },
       });
     }
   }

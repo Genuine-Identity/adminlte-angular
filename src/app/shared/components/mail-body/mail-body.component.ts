@@ -36,7 +36,7 @@ import { filter, map } from 'rxjs';
 })
 export class MailBodyComponent implements OnInit {
   breadcrumb: any;
-  public message: a;
+  public message: any;
   public user: User;
   public id: number;
   public submitted = false;
