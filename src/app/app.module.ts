@@ -9,7 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 
 import { CoreModule } from './core/core.module';
-// import { AppRoutingModule } from './app.routing.module';
+import { AppRoutingModule } from './app.routing.module';
 
 // import { NgSelectModule } from '@ng-select/ng-select';
 // import { AceEditorModule } from 'ng2-ace-editor';
@@ -22,7 +22,7 @@ import { CoreModule } from './core/core.module';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    // AppRoutingModule,
+    AppRoutingModule,
     // NgxDatatableModule,
     // ReactiveFormsModule,
     CoreModule,
