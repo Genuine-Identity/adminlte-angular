@@ -27,7 +27,7 @@ export class UserDetailComponent implements OnInit {
   id: number;
   submitted = false;
   alert: Alert;
-  user: a;
+  user: any;
   userDetailsForm: FormGroup;
   skills: NgOption[];
   skillIds: any[];
