@@ -7,7 +7,7 @@ import {
   ElementRef,
   Injectable,
 } from '@angular/core';
-import { Observable, of ,} from 'rxjs';
+import { Observable, of, filter } from 'rxjs';
 import { delay, map } from 'rxjs/operators';
 import { MessageService } from '../../../core/services/application/message.service';
 import { User } from '../../../shared/models/user';

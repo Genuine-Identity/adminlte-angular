@@ -27,6 +27,7 @@ import { User } from '../../../shared/models/user';
 import { Message } from '../../../shared/models/message';
 import { LocalStorageService } from '../../../core/services/helpers/local-storage.service';
 import { MessageService } from '../../../core/services/application/message.service';
+import { filter, } from 'rxjs';
 
 @Component({
   selector: 'app-mail-body',
@@ -50,12 +51,14 @@ export class MailBodyComponent implements OnInit {
     private route: ActivatedRoute
   ) {
     this.router.events
-      .filter((event) => event instanceof NavigationEnd)
-      .map(() => this.route)
-      .map((route) => {
-        while (route.firstChild) route = route.firstChild;
-        return route;
-      })
+      .pipe(
+        filter((event) => event instanceof NavigationEnd),
+        map(() => this.route),
+        map((route) => {
+          while (route.firstChild) route = route.firstChild;
+          return route;
+        })
+      )
       .subscribe((event: any) => {
         this.breadcrumb = event.data._value;
       });
