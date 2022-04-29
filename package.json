@@ -2,30 +2,6 @@
   "name": "angular",
   "version": "1.0.0",
   "private": true,
-  "dependencies": {
-    "@angular/animations": "^13.2.0",
-    "@angular/common": "^13.2.0",
-    "@angular/compiler": "^13.2.0",
-    "@angular/core": "^13.2.0",
-    "@angular/forms": "^13.2.0",
-    "@angular/platform-browser": "^13.2.0",
-    "@angular/platform-browser-dynamic": "^13.2.0",
-    "@angular/router": "^13.2.0",
-    "rxjs": "^7.5.2",
-    "tslib": "^2.3.1",
-    "zone.js": "^0.11.4",
-    "@angular/fire": "^7.3.0",
-    "@exalif/ngx-breadcrumbs": "^13.0.0",
-    "@ng-select/ng-select": "^8.1.1",
-    "@swimlane/ngx-datatable": "^20.0.0",
-    "chart.js": "^3.7.1",
-    "firebase": "^9.6.11",
-    "firebase-tools": "^10.7.1",
-    "jquery": "^3.6.0",
-    "lodash": "^4.17.21",
-    "ng2-ace-editor": "^0.2.5",
-    "ng2-charts": "^3.0.9"
-  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -34,45 +10,37 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-  "devDependencies": {
-    "@angular-devkit/build-angular": "~0.1100.4",
-    "@angular/cli": "~11.0.4",
-    "@angular/compiler-cli": "~11.0.4",
-    "@types/jasmine": "~3.6.0",
-    "@types/node": "^12.11.1",
-    "codelyzer": "^6.0.0",
-    "jasmine-core": "~3.6.0",
-    "jasmine-spec-reporter": "~5.0.0",
-    "karma": "~5.1.0",
-    "karma-chrome-launcher": "~3.1.0",
-    "karma-coverage": "~2.0.3",
-    "karma-jasmine": "~4.0.0",
-    "karma-jasmine-html-reporter": "^1.5.0",
-    "protractor": "~7.0.0",
-    "ts-node": "~8.3.0",
-    "tslint": "~6.1.0",
-    "typescript": "~4.0.2",
-
-    "@types/jquery": "^3.6.0",
-    
-    "@types/chart.js": "^2.9.35"
-  }
+  "dependencies": {
+    "@angular/common": "8.2.14",
+    "@angular/compiler": "8.2.14",
+    "@angular/core": "8.2.14",
+    "@angular/fire": "5.3.0",
+    "@angular/forms": "8.2.14",
+    "@angular/http": "7.2.16",
+    "@angular/platform-browser": "8.2.14",
+    "@angular/platform-browser-dynamic": "8.2.14",
+    "@angular/router": "8.2.14",
+    "@exalif/ngx-breadcrumbs": "7.1.1",
+    "@firebase/app": "0.5.2",
+    "@ng-bootstrap/ng-bootstrap": "5.2.1",
+    "@ng-select/ng-select": "3.7.1",
+    "@ngrx/store": "8.6.0",
+    "@swimlane/ngx-datatable": "16.0.3",
+    "@types/node": "13.5.0",
+    "angularfire2": "5.3.0",
+    "bootstrap": "4.4.1",
+    "chart.js": "2.9.3",
+    "firebase": "7.7.0",
+    "ionicons": "4.6.3",
+    "jquery": "3.4.1",
+    "lodash": "4.17.15",
+    "lodash.templatesettings": "4.2.0",
+    "ng2-ace-editor": "0.3.9",
+    "ng2-charts": "2.3.0",
+    "popper.js": "1.16.1",
+    "rxjs": "6.5.4",
+    "rxjs-compat": "6.5.4",
+    "zone.js": "0.10.2"
+  },
+  "devDependencies": {}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
