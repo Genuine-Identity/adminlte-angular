@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { LocalStorageService } from '../../../core/services/helpers/local-storage.service';
 
-// @Injectable()
+@Injectable()
 export class UserSessionService {
   constructor(private localStorage: LocalStorageService) {}
   getUserSession(): any {
