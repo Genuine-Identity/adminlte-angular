@@ -20,7 +20,7 @@
     "@angular/platform-browser-dynamic": "^13.2.0",
     "@angular/router": "^13.2.0",
     "rxjs": "^7.5.2",
-    "tslib": "^2.3.1",
+    "tslib": "^2.4.",
     "zone.js": "^0.11.4"
     // "@angular/animations": "^13.3.5",
     // "@angular/common": "^13.3.5",
