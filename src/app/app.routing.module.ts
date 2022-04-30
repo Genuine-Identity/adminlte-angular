@@ -8,21 +8,21 @@ const routes: Routes = [
         (x) => x.AdminLayoutModule
       ),
   },
-  {
-    path: 'user',
-    loadChildren: () =>
-      import('./layout/default/default-layout.module').then(
-        (x) => x.DefaultLayoutModule
-      ),
-  },
-  { path: '**', redirectTo: '' },
+  // {
+  //   path: 'user',
+  //   loadChildren: () =>
+  //     import('./layout/default/default-layout.module').then(
+  //       (x) => x.DefaultLayoutModule
+  //     ),
+  // },
+  // { path: '**', redirectTo: '' },
 ];
 
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
       onSameUrlNavigation: 'ignore',
-      preloadingStrategy: PreloadAllModules,
+      // preloadingStrategy: PreloadAllModules,
     }),
   ],
   exports: [RouterModule],
