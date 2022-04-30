@@ -22,7 +22,7 @@ import {
 } from '../../../shared/models/page';
 // import { NgSelectModule, NgOption } from '@ng-select/ng-select';
 
-// @Injectable()
+@Injectable()
 export class UserService {
   users: User[];
   // private usersInOption: NgOption[];
