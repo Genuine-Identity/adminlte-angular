@@ -5,7 +5,7 @@ import { first } from 'rxjs/operators';
 import { User } from './shared/models/index';
 import { UserService } from './core/services/application/user.service';
 import { MessageService } from './core/services/application/message.service';
-import { SkillService } from './core/services/application/skill.service';
+// import { SkillService } from './core/services/application/skill.service';
 import { LoggerService } from './core/services/application/logger.service';
 import {
   NavigationCancel,
@@ -28,7 +28,7 @@ import { LocalStorageService } from './core/services/helpers/local-storage.servi
 export class AppComponent implements OnInit {
   constructor(
     private userService: UserService,
-    private skillService: SkillService,
+    // private skillService: SkillService,
     // private router: Router,
     // private route: ActivatedRoute,
     private messageService: MessageService,

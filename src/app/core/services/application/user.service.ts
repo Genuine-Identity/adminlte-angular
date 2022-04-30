@@ -20,12 +20,12 @@ import {
   CorporateEmployee,
   Page,
 } from '../../../shared/models/page';
-import { NgSelectModule, NgOption } from '@ng-select/ng-select';
+// import { NgSelectModule, NgOption } from '@ng-select/ng-select';
 
 // @Injectable()
 export class UserService {
   users: User[];
-  private usersInOption: NgOption[];
+  // private usersInOption: NgOption[];
 
   constructor(private http: HttpClient) {}
 

@@ -5,7 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { UserDetailComponent } from './user-detail.component';
 import { AlertModule } from '../../widgets/alert/alert.module';
-import { NgSelectModule } from '@ng-select/ng-select';
+// import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   imports: [
@@ -13,13 +13,9 @@ import { NgSelectModule } from '@ng-select/ng-select';
     FormsModule,
     ReactiveFormsModule,
     AlertModule,
-    NgSelectModule
+    // NgSelectModule
   ],
-  declarations: [
-    UserDetailComponent,
-  ],
-  exports: [
-    UserDetailComponent,
-  ]
+  declarations: [UserDetailComponent],
+  exports: [UserDetailComponent],
 })
-export class UserDetailModule { }
+export class UserDetailModule {}
