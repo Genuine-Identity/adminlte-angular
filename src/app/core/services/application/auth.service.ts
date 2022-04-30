@@ -3,20 +3,27 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { LocalStorageService } from '../helpers/local-storage.service';
 
-@Injectable()
+// @Injectable()
 export class AuthService {
-
-  constructor(private http: HttpClient,
-  private localStorage: LocalStorageService) { }
+  constructor(
+    private http: HttpClient,
+    private localStorage: LocalStorageService
+  ) {}
 
   public login(username: string, password: string) {
-    return this.http.post<any>(`/users/authenticate`, { username: username, password: password })
-      .pipe(map(user => {
-        if (user && user.token) {
-          this.localStorage.setItem('userSession', JSON.stringify(user));
-        }
-        return user;
-      }));
+    return this.http
+      .post<any>(`/users/authenticate`, {
+        username: username,
+        password: password,
+      })
+      .pipe(
+        map((user) => {
+          if (user && user.token) {
+            this.localStorage.setItem('userSession', JSON.stringify(user));
+          }
+          return user;
+        })
+      );
   }
 
   logout() {

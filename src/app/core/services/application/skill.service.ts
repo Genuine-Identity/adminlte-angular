@@ -1,15 +1,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Component, Input, OnInit, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  Output,
+  EventEmitter,
+  ViewEncapsulation,
+} from '@angular/core';
 import { NgSelectModule, NgOption } from '@ng-select/ng-select';
 
-@Injectable()
+// @Injectable()
 export class SkillService {
   private skills: NgOption[] = [
     { id: 1, name: 'Asp.Net' },
     { id: 2, name: 'C#' },
-    { id: 3, name: 'php'},
+    { id: 3, name: 'php' },
     { id: 4, name: 'SQL' },
     { id: 5, name: 'Python' },
     { id: 6, name: 'Angular 2+' },
@@ -24,7 +31,7 @@ export class SkillService {
     { id: 15, name: 'Micro Services' },
   ];
 
-  constructor() { }
+  constructor() {}
   getAllSkill(): NgOption[] {
     return this.skills;
   }

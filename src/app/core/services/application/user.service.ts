@@ -1,6 +1,3 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {
   Component,
   Input,
@@ -9,6 +6,9 @@ import {
   EventEmitter,
   ViewEncapsulation,
 } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { map } from 'rxjs/operators';
 import { of, Observable } from 'rxjs';
@@ -22,7 +22,7 @@ import {
 } from '../../../shared/models/page';
 import { NgSelectModule, NgOption } from '@ng-select/ng-select';
 
-@Injectable()
+// @Injectable()
 export class UserService {
   users: User[];
   private usersInOption: NgOption[];
