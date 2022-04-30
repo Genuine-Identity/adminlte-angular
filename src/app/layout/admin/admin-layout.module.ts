@@ -11,8 +11,8 @@ import { ControlSidebarBackGroundModule } from '../../shared/components/control-
 
 @NgModule({
   imports: [
-    //AdminLayoutRoutingModule,
-    HeaderModule,
+    AdminLayoutRoutingModule,
+    HeaderModule, 
     FooterModule,
     MainSidebarModule,
     ControlSidebarModule,
