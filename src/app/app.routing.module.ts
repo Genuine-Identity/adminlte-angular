@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
@@ -7,7 +7,7 @@ const routes: Routes = [
       import('./layout/admin/admin-layout.module').then(
         (x) => x.AdminLayoutModule
       ),
-  }, 
+  },
   // {
   //   path: 'user',
   //   loadChildren: () =>
