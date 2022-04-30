@@ -12,7 +12,7 @@ const routes: Routes = [
     children: [
       {
         path: '', component: DashbardControlPanelComponent,
-        canActivate: [AuthGuard],
+        // canActivate: [AuthGuard],
         data: {
           breadcrumb: 'Dashboard',
           breadcrumbs: 'Dashboard',
@@ -25,7 +25,7 @@ const routes: Routes = [
       },  
        {
         path: 'version-one', component: DashbardVersionOneComponent,
-        canActivate: [AuthGuard],
+        // canActivate: [AuthGuard],
         data: {
           breadcrumb: 'Dashboard Version One',
           breadcrumbs: 'Dashboard Version One',
