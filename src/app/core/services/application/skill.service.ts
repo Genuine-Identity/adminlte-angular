@@ -11,7 +11,7 @@ import {
 } from '@angular/core';
 import { NgSelectModule, NgOption } from '@ng-select/ng-select';
 
-// @Injectable()
+@Injectable()
 export class SkillService {
   private skills: NgOption[] = [
     { id: 1, name: 'Asp.Net' },

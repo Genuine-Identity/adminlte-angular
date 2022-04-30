@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Task } from '../../../shared/models/task';
 
-// @Injectable()
+@Injectable()
 export class TaskService {
   constructor() {}
 
