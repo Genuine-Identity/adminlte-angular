@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Notification } from '../../../shared/models/notification';
 
-// @Injectable()
+@Injectable()
 export class NotificationService {
   constructor() {}
 

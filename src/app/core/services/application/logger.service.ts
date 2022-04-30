@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 import { Log, Severity, User } from '../../../shared/models/index';
 import { UserSessionService } from '../../../core/services/application/user-session.service';
 
-@Injectable() 
+@Injectable()
 export class LoggerService {
   private basePath: string = '/log';
   // private userName: string;
