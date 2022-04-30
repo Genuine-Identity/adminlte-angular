@@ -22,7 +22,7 @@ import {
   Page,
 } from '../../../shared/models/page';
 
-// @Injectable()
+@Injectable()
 export class MessageService {
   messages: any;
   constructor(private http: HttpClient) {}
