@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import "jquery";
+import 'jquery';
 import * as $ from 'jquery';
 import { DashboardComponent } from './dashboard.component';
 import { CardDetailsModule } from '../../shared/components/card-details/card-details.module';
