@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { first } from 'rxjs/operators';
-// import * as jQuery from 'jquery';
+import * as jQuery from 'jquery';
 
 import { User } from './shared/models/index';
 import { UserService } from './core/services/application/user.service';
 import { MessageService } from './core/services/application/message.service';
-// import { SkillService } from './core/services/application/skill.service';
+import { SkillService } from './core/services/application/skill.service';
 import { LoggerService } from './core/services/application/logger.service';
 import {
   NavigationCancel,
@@ -13,10 +13,10 @@ import {
   NavigationEnd,
   NavigationError,
   NavigationStart,
-  // Router,
-  // ActivatedRoute,
+  Router,
+  ActivatedRoute,
 } from '@angular/router';
-// import { Message } from './shared/models/message';
+import { Message } from './shared/models/message';
 
 import { LocalStorageService } from './core/services/helpers/local-storage.service';
 
@@ -28,9 +28,9 @@ import { LocalStorageService } from './core/services/helpers/local-storage.servi
 export class AppComponent implements OnInit {
   constructor(
     private userService: UserService,
-    // private skillService: SkillService,
-    // private router: Router,
-    // private route: ActivatedRoute,
+    private skillService: SkillService,
+    private router: Router,
+    private route: ActivatedRoute,
     private messageService: MessageService,
     private localStorage: LocalStorageService,
     private log: LoggerService
