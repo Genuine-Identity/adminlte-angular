@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { LocalStorageService } from '../helpers/local-storage.service';
 
-// @Injectable()
+@Injectable()
 export class AuthService {
   constructor(
     private http: HttpClient,
