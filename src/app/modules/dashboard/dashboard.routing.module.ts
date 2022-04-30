@@ -9,34 +9,34 @@ const routes: Routes = [
   {
     path: '',
     component: DashboardComponent,
-    // children: [
-    //   {
-    //     path: '', component: DashbardControlPanelComponent,
-    //     canActivate: [AuthGuard],
-    //     data: {
-    //       breadcrumb: 'Dashboard',
-    //       breadcrumbs: 'Dashboard',
-    //       title: 'Dashboard Title',
-    //       smallText: 'Dashboard Small Text',
-    //       isHome: true,
-    //       icon: 'fa fa-home',
-    //       show: false
-    //     },
-    //   },  
-    //    {
-    //     path: 'version-one', component: DashbardVersionOneComponent,
-    //     canActivate: [AuthGuard],
-    //     data: {
-    //       breadcrumb: 'Dashboard Version One',
-    //       breadcrumbs: 'Dashboard Version One',
-    //       title: 'Dashboard Version One Title',
-    //       smallText: 'Dashboard Version One Small Text',
-    //       isHome: true,
-    //       icon: 'fa fa-home',
-    //       show: false
-    //     },
-    //   },
-    // ]
+    children: [
+      {
+        path: '', component: DashbardControlPanelComponent,
+        canActivate: [AuthGuard],
+        data: {
+          breadcrumb: 'Dashboard',
+          breadcrumbs: 'Dashboard',
+          title: 'Dashboard Title',
+          smallText: 'Dashboard Small Text',
+          isHome: true,
+          icon: 'fa fa-home',
+          show: false
+        },
+      },  
+       {
+        path: 'version-one', component: DashbardVersionOneComponent,
+        canActivate: [AuthGuard],
+        data: {
+          breadcrumb: 'Dashboard Version One',
+          breadcrumbs: 'Dashboard Version One',
+          title: 'Dashboard Version One Title',
+          smallText: 'Dashboard Version One Small Text',
+          isHome: true,
+          icon: 'fa fa-home',
+          show: false
+        },
+      },
+    ]
   }
 ];
 @NgModule({
