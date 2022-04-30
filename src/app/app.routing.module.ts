@@ -7,7 +7,7 @@ const routes: Routes = [
       import('./layout/admin/admin-layout.module').then(
         (x) => x.AdminLayoutModule
       ),
-  },
+  }, 
   // {
   //   path: 'user',
   //   loadChildren: () =>
@@ -19,9 +19,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes),
-  ],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
