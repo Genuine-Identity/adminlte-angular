@@ -28,7 +28,7 @@
     "ng2-charts": "3.0.10",
     "@ng-select/ng-select": "8.1.1",
     "@swimlane/ngx-datatable": "20.0.0",
-    "@exalif/ngx-breadcrumbs":"13.0"
+    "@exalif/ngx-breadcrumbs": "13.0.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1100.4",
