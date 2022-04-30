@@ -22,7 +22,6 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes, {
       onSameUrlNavigation: 'ignore',
-      // preloadingStrategy: PreloadAllModules,
     }),
   ],
   exports: [RouterModule],
