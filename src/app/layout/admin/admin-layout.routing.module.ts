@@ -16,7 +16,7 @@ const routes: Routes = [
             (x) => x.DashboardModule 
           ),
 
-        canActivate: [AuthGuard],
+        // canActivate: [AuthGuard],
       },
       // {
       //   path: 'dashboard',
