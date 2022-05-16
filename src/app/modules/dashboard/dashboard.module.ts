@@ -14,7 +14,7 @@ import { NgChartsModule } from 'ng2-charts';
 @NgModule({
   imports: [
     CommonModule,
-    // DashboardRoutingModule,
+    / DashboardRoutingModule,
     FormsModule,
     CardDetailsModule,
     NgChartsModule,
