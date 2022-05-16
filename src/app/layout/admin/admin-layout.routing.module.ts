@@ -11,15 +11,12 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        // loadChildren: () =>
-        //   import('../../modules/dashboard/dashboard.module').then(
-        //     (x) => x.login
-        //   ),
         loadChildren: () =>
-          import('../../modules/default/default.module').then(
-            (x) => x.DefaultModule
+          import('../../modules/dashboard/dashboard.module').then(
+            (x) => x.DashboardModule
           ),
-        // canActivate: [AuthGuard],
+
+        canActivate: [AuthGuard],
       },
       // {
       //   path: 'dashboard',
