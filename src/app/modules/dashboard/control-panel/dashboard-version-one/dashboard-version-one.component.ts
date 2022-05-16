@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { AppSettings } from '../../../../core/services/application/app-settings.service';
-import { ChartOptions, ChartType, ChartDataset } from 'chart.js';
+// import { ChartOptions, ChartType, ChartDataset } from 'chart.js';
 
 // import { Label } from 'ng2-charts';
 import { User } from '../../../../shared/models/user';
@@ -28,7 +28,7 @@ export class DashbardVersionOneComponent implements OnInit {
   public barChartPlugins;
   public barChartLabels: any[];
 
-  public barChartData: ChartDataset[] = [];
+  // public barChartData: ChartDataset[] = [];
 
   public barChartLegend = true;
   public barChartType: any = 'bar';
@@ -52,17 +52,17 @@ export class DashbardVersionOneComponent implements OnInit {
     this.page.size = 1000;
     this.receivedPage.pageNumber = 0;
     this.receivedPage.size = 1000;
-    this.bindUserDetails();
+    // this.bindUserDetails();
 
-    this.bindBarChartLabels();
-    this.bindBarChartOptions();
+    // this.bindBarChartLabels();
+    // this.bindBarChartOptions();
   }
   getRecords(): boolean {
     return this.records1 && this.records2;
   }
   ngOnInit() {
-    this.getSendMailsDetails({ offset: 0 });
-    this.getReceivedMailsDetails({ offset: 0 });
+    // this.getSendMailsDetails({ offset: 0 });
+    // this.getReceivedMailsDetails({ offset: 0 });
   }
   bindUserDetails() {
     this.user = JSON.parse(this.localStorage.getItem('userSession'));
