@@ -21,8 +21,8 @@ import { DashbardVersionOneComponent } from './control-panel/dashboard-version-o
   ],
   declarations: [
     DashboardComponent,
-    DashbardControlPanelComponent,
-    DashbardVersionOneComponent,
+    // DashbardControlPanelComponent,
+    // DashbardVersionOneComponent,
   ],
 })
 export class DashboardModule {}
