@@ -22,9 +22,9 @@ import {
 })
 export class DashbardVersionOneComponent implements OnInit {
   private user: User;
-  public barChartOptions: ChartOptions = {
-    responsive: true,
-  };
+  // public barChartOptions: ChartOptions = {
+  //   responsive: true,
+  // };
   public barChartPlugins;
   public barChartLabels: any[];
 
@@ -64,113 +64,116 @@ export class DashbardVersionOneComponent implements OnInit {
     // this.getSendMailsDetails({ offset: 0 });
     // this.getReceivedMailsDetails({ offset: 0 });
   }
-  bindUserDetails() {
-    this.user = JSON.parse(this.localStorage.getItem('userSession'));
-  }
-  bindBarChartOptions() {
-    this.barChartOptions = {
-      responsive: true,
-    };
-  }
 
-  bindBarChartLabels() {
-    this.barChartLabels = [
-      '1',
-      '2',
-      '3',
-      '4',
-      '5',
-      '6',
-      '7',
-      '8',
-      '9',
-      '10',
-      '11',
-      '12',
-      '13',
-      '14',
-      '15',
-      '16',
-      '17',
-      '18',
-      '19',
-      '20',
-      '21',
-      '22',
-      '23',
-      '24',
-    ];
-  }
-  getSendMailsDetails(pageInfo) {
-    this.pageInfo = pageInfo;
-    this.page.pageNumber = pageInfo.offset;
-    this.messageService
-      .getFromMessages(this.page, this.user.username)
-      .subscribe((pagedData) => {
-        this.page = pagedData.page;
-        this.rows = pagedData.data;
-        console.log('this.rows');
-        console.log(this.rows);
-        for (let i = 0; i < this.rows.length; i++) {
-          this.rows[i].hour = new Date(this.rows[i].time).getHours() + 1;
-        }
-        this.sendMailRecords = _.countBy(this.rows, 'hour');
-        for (let i = 0; i < 25; i++) {
-          if (
-            !(
-              this.sendMailRecords[i] != null ||
-              this.sendMailRecords[i] != undefined
-            )
-          ) {
-            this.sendMailRecords[i] = 0;
-          }
-        }
-        this.barChartData.push({
-          data: _.values(this.sendMailRecords),
-          label: 'Sent Mails',
-        });
-        this.records1 = true;
-        console.log(this.sendMailRecords);
-      });
-  }
+  // bindUserDetails() {
+  //   this.user = JSON.parse(this.localStorage.getItem('userSession'));
+  // }
 
-  getReceivedMailsDetails(pageInfo) {
-    this.pageInfo = pageInfo;
-    this.receivedPage.pageNumber = pageInfo.offset;
-    this.messageService
-      .getMessages(this.receivedPage, this.user.username, 'ALL')
-      .subscribe((pagedData) => {
-        console.log(pagedData);
-        this.receivedPage = pagedData.page;
-        this.receivedRows = pagedData.data;
-        console.log('this.receivedRows');
-        console.log(this.receivedRows);
-        for (let i = 0; i < this.receivedRows.length; i++) {
-          this.receivedRows[i].hour =
-            new Date(this.receivedRows[i].time).getHours() + 1;
-          console.log(new Date(this.receivedRows[i].time).getHours() + 1);
-        }
-        this.receivedMailRecords = _.countBy(this.receivedRows, 'hour');
-        for (let i = 0; i < 25; i++) {
-          if (
-            !(
-              this.receivedMailRecords[i] != null ||
-              this.receivedMailRecords[i] != undefined
-            )
-          ) {
-            this.receivedMailRecords[i] = 0;
-          }
-        }
+  // bindBarChartOptions() {
+  //   this.barChartOptions = {
+  //     responsive: true,
+  //   };
+  // }
 
-        this.barChartData.push({
-          data: _.values(this.receivedMailRecords),
-          label: 'Received Mails',
-        });
-        this.records2 = true;
-        console.log('Received Mails');
-        console.log(this.receivedMailRecords);
+  // bindBarChartLabels() {
+  //   this.barChartLabels = [
+  //     '1',
+  //     '2',
+  //     '3',
+  //     '4',
+  //     '5',
+  //     '6',
+  //     '7',
+  //     '8',
+  //     '9',
+  //     '10',
+  //     '11',
+  //     '12',
+  //     '13',
+  //     '14',
+  //     '15',
+  //     '16',
+  //     '17',
+  //     '18',
+  //     '19',
+  //     '20',
+  //     '21',
+  //     '22',
+  //     '23',
+  //     '24',
+  //   ];
+  // }
 
-        console.log(this.barChartData);
-      });
-  }
+  // getSendMailsDetails(pageInfo) {
+  //   this.pageInfo = pageInfo;
+  //   this.page.pageNumber = pageInfo.offset;
+  //   this.messageService
+  //     .getFromMessages(this.page, this.user.username)
+  //     .subscribe((pagedData) => {
+  //       this.page = pagedData.page;
+  //       this.rows = pagedData.data;
+  //       console.log('this.rows');
+  //       console.log(this.rows);
+  //       for (let i = 0; i < this.rows.length; i++) {
+  //         this.rows[i].hour = new Date(this.rows[i].time).getHours() + 1;
+  //       }
+  //       this.sendMailRecords = _.countBy(this.rows, 'hour');
+  //       for (let i = 0; i < 25; i++) {
+  //         if (
+  //           !(
+  //             this.sendMailRecords[i] != null ||
+  //             this.sendMailRecords[i] != undefined
+  //           )
+  //         ) {
+  //           this.sendMailRecords[i] = 0;
+  //         }
+  //       }
+  //       this.barChartData.push({
+  //         data: _.values(this.sendMailRecords),
+  //         label: 'Sent Mails',
+  //       });
+  //       this.records1 = true;
+  //       console.log(this.sendMailRecords);
+  //     });
+  // }
+
+  // getReceivedMailsDetails(pageInfo) {
+  //   this.pageInfo = pageInfo;
+  //   this.receivedPage.pageNumber = pageInfo.offset;
+  //   this.messageService
+  //     .getMessages(this.receivedPage, this.user.username, 'ALL')
+  //     .subscribe((pagedData) => {
+  //       console.log(pagedData);
+  //       this.receivedPage = pagedData.page;
+  //       this.receivedRows = pagedData.data;
+  //       console.log('this.receivedRows');
+  //       console.log(this.receivedRows);
+  //       for (let i = 0; i < this.receivedRows.length; i++) {
+  //         this.receivedRows[i].hour =
+  //           new Date(this.receivedRows[i].time).getHours() + 1;
+  //         console.log(new Date(this.receivedRows[i].time).getHours() + 1);
+  //       }
+  //       this.receivedMailRecords = _.countBy(this.receivedRows, 'hour');
+  //       for (let i = 0; i < 25; i++) {
+  //         if (
+  //           !(
+  //             this.receivedMailRecords[i] != null ||
+  //             this.receivedMailRecords[i] != undefined
+  //           )
+  //         ) {
+  //           this.receivedMailRecords[i] = 0;
+  //         }
+  //       }
+
+  //       this.barChartData.push({
+  //         data: _.values(this.receivedMailRecords),
+  //         label: 'Received Mails',
+  //       });
+  //       this.records2 = true;
+  //       console.log('Received Mails');
+  //       console.log(this.receivedMailRecords);
+
+  //       console.log(this.barChartData);
+  //     });
+  // }
 }
