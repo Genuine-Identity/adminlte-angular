@@ -38,8 +38,8 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     // localStorage.clear();
-    this.localStorage.setItem('db.message', null);
-    this.localStorage.setItem('db.messages', null);
+    // this.localStorage.setItem('db.message', null);
+    // this.localStorage.setItem('db.messages', null);
     this.initFakeBackendDatabase();
   }
 
@@ -248,7 +248,7 @@ export class AppComponent implements OnInit {
   }
   sendMailToDb(checkDatabaseIntialize: any) {
     if (!checkDatabaseIntialize) {
-      let message: any = {
+      let message: Message = {
         id: 0,
         from: 'intelchiprules@yahoo.co.in',
         fromName: 'Girish' + ' ' + 'Nandgawe',
@@ -288,7 +288,7 @@ export class AppComponent implements OnInit {
     if (event instanceof NavigationEnd) {
       setTimeout(() => {
         console.log('this._loadingBar.complete();');
-        // console.log(this.route.snapshot.data);
+        console.log(this.route.snapshot.data);
       }, 500);
     }
     if (event instanceof NavigationCancel) {
