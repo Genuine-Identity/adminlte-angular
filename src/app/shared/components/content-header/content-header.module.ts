@@ -5,22 +5,20 @@ import { BreadcrumbsModule } from '@exalif/ngx-breadcrumbs';
 import { ContentHeaderComponent } from './content-header.component';
 
 @NgModule({
-  imports: [CommonModule,
-    BreadcrumbsModule.forRoot()
-  ],
+  imports: [CommonModule, BreadcrumbsModule.forRoot()],
   exports: [ContentHeaderComponent],
-  declarations: [ContentHeaderComponent]
+  declarations: [ContentHeaderComponent],
 })
 export class ContentHeaderModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: ContentHeaderModule,
-    }
+    };
   }
 }
-declare module "@angular/core" {
+declare module '@angular/core' {
   interface ModuleWithProviders<T = any> {
-      ngModule: Type<T>;
-      providers?: Provider[];
+    ngModule: Type<T>;
+    // providers?: Provider[];
   }
 }
