@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminLayoutComponent } from './admin-layout.component';
 import { AuthGuardService as AuthGuard } from '../../core/services/guards/auth-guard.service';
@@ -13,7 +12,7 @@ const routes: Routes = [
         path: '',
         loadChildren: () =>
           import('../../modules/dashboard/dashboard.module').then(
-            (x) => x.DashboardModule
+            (m) => m.DashboardModule
           ),
         canActivate: [AuthGuard],
       },
@@ -21,9 +20,8 @@ const routes: Routes = [
         path: 'dashboard',
         loadChildren: () =>
           import('../../modules/dashboard/dashboard.module').then(
-            (x) => x.DashboardModule
+            (m) => m.DashboardModule
           ),
-
         canActivate: [AuthGuard],
         data: {
           breadcrumb: 'Dashboard',
@@ -38,7 +36,7 @@ const routes: Routes = [
       {
         path: 'admin',
         loadChildren: () =>
-          import('../../modules/admin/admin.module').then((x) => x.AdminModule),
+          import('../../modules/admin/admin.module').then((m) => m.AdminModule),
         canActivate: [AuthGuard],
         data: {
           breadcrumb: 'Admin',
@@ -52,9 +50,8 @@ const routes: Routes = [
       },
       {
         path: 'mail',
-        // loadChildren: '../../modules/mail/mail.module#MailModule',
         loadChildren: () =>
-          import('../../modules/mail/mail.module').then((x) => x.MailModule),
+          import('../../modules/mail/mail.module').then((m) => m.MailModule),
         canActivate: [AuthGuard],
         data: {
           breadcrumb: 'Mail',
@@ -68,10 +65,9 @@ const routes: Routes = [
       },
       {
         path: 'search',
-        // loadChildren: '../../modules/search/search.module#SearchModule',
         loadChildren: () =>
           import('../../modules/search/search.module').then(
-            (x) => x.SearchModule
+            (m) => m.SearchModule
           ),
         canActivate: [AuthGuard],
         data: {
@@ -86,10 +82,9 @@ const routes: Routes = [
       },
       {
         path: 'system',
-        // loadChildren: '../../modules/system/system.module#SystemModule',
         loadChildren: () =>
           import('../../modules/system/system.module').then(
-            (x) => x.SystemModule
+            (m) => m.SystemModule
           ),
         canActivate: [AuthGuard],
         data: {
