@@ -25,6 +25,7 @@
     "lib": ["ES2022", "dom"]
   },
   "angularCompilerOptions": {
+    "enableIvy": false,
     "noImplicitAny": false,
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": false,
