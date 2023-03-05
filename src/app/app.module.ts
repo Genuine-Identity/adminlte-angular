@@ -23,7 +23,7 @@ import { CoreModule } from './core/core.module';
 import { AppRoutingModule } from './app.routing.module';
 
 import { NgSelectModule } from '@ng-select/ng-select';
-import { AceEditorModule } from 'ng2-ace-editor';
+// import { AceEditorModule } from 'ng2-ace-editor';
 
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
@@ -42,7 +42,7 @@ import { environment } from './core/environment';
     ReactiveFormsModule,
     CoreModule,
     NgSelectModule,
-    AceEditorModule,
+    // AceEditorModule,
     AngularFireModule.initializeApp(
       environment.firebaseConfig,
       'stackblitz-firebase-database'
