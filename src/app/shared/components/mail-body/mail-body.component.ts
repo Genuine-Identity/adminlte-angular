@@ -27,7 +27,7 @@ import { User } from '../../../shared/models/user';
 import { Message } from '../../../shared/models/message';
 import { LocalStorageService } from '../../../core/services/helpers/local-storage.service';
 import { MessageService } from '../../../core/services/application/message.service';
-import { filter, map } from 'rxjs';
+import { map, filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-mail-body',
