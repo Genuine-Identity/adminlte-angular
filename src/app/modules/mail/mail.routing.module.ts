@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router'; 
+import { Routes, RouterModule } from '@angular/router';
 import { AuthGuardService as AuthGuard } from '../../core/services/guards/auth-guard.service';
 import { MailComponent } from './mail.component';
 import { InboxComponent } from './mail-box/inbox/component/inbox.component';
@@ -16,7 +16,8 @@ const routes: Routes = [
     component: MailComponent,
     children: [
       {
-        path: '', component: MailBoxRootComponent,
+        path: '',
+        component: MailBoxRootComponent,
         canActivate: [AuthGuard],
         data: {
           breadcrumb: 'inbox',
@@ -29,21 +30,37 @@ const routes: Routes = [
         },
         children: [
           {
-            path: '', redirectTo: 'inbox'
-          },
-          {
-            path: 'inbox', component: InboxComponent,
+            path: '',
+            component: InboxComponent,
             canActivate: [AuthGuard],
             data: {
               title: 'Inbox',
               smallText: '13 New Messages',
               isHome: true,
               icon: 'fa fa-home',
-              show: false
+              show: false,
+
+              breadcrumb: 'Inbox ',
+              breadcrumbs: 'Inbox ',
             },
           },
           {
-            path: 'compose', component: ComposeMailComponent,
+            path: 'inbox',
+            component: InboxComponent,
+            canActivate: [AuthGuard],
+            data: {
+              title: 'Inbox',
+              smallText: '13 New Messages',
+              isHome: true,
+              icon: 'fa fa-home',
+              show: false,
+              breadcrumb: 'Inbox ',
+              breadcrumbs: 'Inbox ',
+            },
+          },
+          {
+            path: 'compose',
+            component: ComposeMailComponent,
             canActivate: [AuthGuard],
             data: {
               breadcrumb: 'Compose ',
@@ -52,11 +69,12 @@ const routes: Routes = [
               smallText: 'Compose   ',
               isHome: true,
               icon: 'fa fa-home',
-              show: false
+              show: false,
             },
           },
           {
-            path: 'junk', component: JunkComponent,
+            path: 'junk',
+            component: JunkComponent,
             canActivate: [AuthGuard],
             data: {
               breadcrumb: 'Junk',
@@ -65,10 +83,12 @@ const routes: Routes = [
               smallText: '13 New Messages',
               isHome: true,
               icon: 'fa fa-home',
-              show: false
+              show: false,
             },
-          }, {
-            path: 'sent', component: SendComponent,
+          },
+          {
+            path: 'sent',
+            component: SendComponent,
             canActivate: [AuthGuard],
             data: {
               breadcrumb: 'Sent',
@@ -77,11 +97,12 @@ const routes: Routes = [
               smallText: 'Sent Messages',
               isHome: true,
               icon: 'fa fa-home',
-              show: false
+              show: false,
             },
           },
           {
-            path: 'trash', component: TrashComponent,
+            path: 'trash',
+            component: TrashComponent,
             canActivate: [AuthGuard],
             data: {
               breadcrumb: 'Trash',
@@ -90,11 +111,12 @@ const routes: Routes = [
               smallText: '13 New Messages',
               isHome: true,
               icon: 'fa fa-home',
-              show: false
+              show: false,
             },
           },
           {
-            path: 'trash', component: JunkComponent,
+            path: 'trash',
+            component: JunkComponent,
             canActivate: [AuthGuard],
             data: {
               breadcrumb: 'Junk',
@@ -103,11 +125,12 @@ const routes: Routes = [
               smallText: '13 New Messages',
               isHome: true,
               icon: 'fa fa-home',
-              show: false
+              show: false,
             },
           },
           {
-            path: 'read/s/:id', component: ReadMailComponent,
+            path: 'read/s/:id',
+            component: ReadMailComponent,
             canActivate: [AuthGuard],
             data: {
               breadcrumb: 'Sent Details',
@@ -117,11 +140,12 @@ const routes: Routes = [
               isHome: true,
               icon: 'fa fa-home',
               show: false,
-              mode: "sent"
+              mode: 'sent',
             },
           },
           {
-            path: 'read/i/:id', component: ReadMailComponent,
+            path: 'read/i/:id',
+            component: ReadMailComponent,
             canActivate: [AuthGuard],
             data: {
               breadcrumb: 'Inbox Details',
@@ -131,11 +155,12 @@ const routes: Routes = [
               isHome: true,
               icon: 'fa fa-home',
               show: false,
-              mode: "inbox"
+              mode: 'inbox',
             },
           },
           {
-            path: 'read/j/:id', component: ReadMailComponent,
+            path: 'read/j/:id',
+            component: ReadMailComponent,
             canActivate: [AuthGuard],
             data: {
               breadcrumb: 'Junk Details',
@@ -145,11 +170,12 @@ const routes: Routes = [
               isHome: true,
               icon: 'fa fa-home',
               show: false,
-              mode: "junk"
+              mode: 'junk',
             },
           },
           {
-            path: 'read/t/:id', component: ReadMailComponent,
+            path: 'read/t/:id',
+            component: ReadMailComponent,
             canActivate: [AuthGuard],
             data: {
               breadcrumb: 'Trash Details',
@@ -159,20 +185,16 @@ const routes: Routes = [
               isHome: true,
               icon: 'fa fa-home',
               show: false,
-              mode: "trash"
+              mode: 'trash',
             },
           },
-        ]
+        ],
       },
-    ]
-  }
+    ],
+  },
 ];
 @NgModule({
-  imports: [
-    RouterModule.forChild(routes),
-  ],
-  exports: [
-    RouterModule
-  ]
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule],
 })
-export class MailRoutingModule { }
+export class MailRoutingModule {}
