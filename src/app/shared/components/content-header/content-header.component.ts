@@ -8,7 +8,7 @@ import {
   Router,
   ActivatedRoute,
 } from '@angular/router';
-import { filter, map } from 'rxjs';
+import { map, filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-content-header',
