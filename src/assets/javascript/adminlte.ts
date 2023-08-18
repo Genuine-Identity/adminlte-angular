@@ -47,7 +47,7 @@ if (typeof $ === 'undefined') {
     },
   };
 
-  var Selector = {
+  var Selector: any = {
     data: '[data-widget="box-refresh"]',
   };
 
@@ -128,8 +128,8 @@ if (typeof $ === 'undefined') {
         if (typeof data[option] == 'undefined') {
           throw new Error('No method named ' + option);
         }
-        data[option]();
       }
+      data[option]();
     });
   }
 
@@ -966,7 +966,7 @@ if (typeof $ === 'undefined') {
     },
   };
 
-  var Selector = {
+  var Selector: any = {
     data: '[data-widget="todo-list"]',
   };
 
@@ -1031,8 +1031,8 @@ if (typeof $ === 'undefined') {
         if (typeof data[option] == 'undefined') {
           throw new Error('No method named ' + option);
         }
-        data[option]();
       }
+      data[option]();
     });
   }
 
