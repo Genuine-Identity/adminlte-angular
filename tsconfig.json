@@ -19,6 +19,7 @@
   },
   "angularCompilerOptions": {
     "strictTemplates": false,
-    "strictInjectionParameters": false
+    "strictInjectionParameters": false,
+    "allowImportingTsExtensions": false,
   }
 }
