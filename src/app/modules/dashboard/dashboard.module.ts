@@ -1,15 +1,16 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import 'jquery';
-import * as $ from 'jquery';
-import { DashboardComponent } from './dashboard.component';
-import { CardDetailsModule } from '../../shared/components/card-details/card-details.module';
-import { DashbardControlPanelComponent } from './control-panel/pages/dashboard-control-panel.component';
-import { DashboardRoutingModule } from './dashboard.routing.module';
-import { DashbardVersionOneComponent } from './control-panel/dashboard-version-one/dashboard-version-one.component';
-
-// import { NgChartsModule  } from 'ng2-charts/ng2-charts';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { FormsModule } from "@angular/forms";
+// import "jquery";
+// import * as $ from 'jquery';
+import { DashboardComponent } from "./dashboard.component";
+import { CardDetailsModule } from "../../shared/components/card-details/card-details.module";
+import { DashbardControlPanelComponent } from "./control-panel/pages/dashboard-control-panel.component";
+import { DashboardRoutingModule } from "./dashboard.routing.module";
+import { DashbardVersionOneComponent } from "./control-panel/dashboard-version-one/dashboard-version-one.component";
+ 
+import { ChartsModule } from "ng2-charts";
+import { ChartModule } from "angular-highcharts";
 
 @NgModule({
   imports: [
@@ -17,12 +18,12 @@ import { DashbardVersionOneComponent } from './control-panel/dashboard-version-o
     DashboardRoutingModule,
     FormsModule,
     CardDetailsModule,
-    // NgChartsModule,
+    ChartsModule
   ],
   declarations: [
     DashboardComponent,
     DashbardControlPanelComponent,
-    DashbardVersionOneComponent,
-  ],
+    DashbardVersionOneComponent
+  ]
 })
 export class DashboardModule {}

@@ -1,190 +1,77 @@
 <section class="content">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="box box-primary">
-        <div class="box-header">
-          <h3 class="box-title">User List</h3>
-        </div>
-        <div class="box-body table-responsive">
-          <ngx-datatable
-            class="material"
-            [rows]="rows"
-            [columnMode]="'standard'"
-            [headerHeight]="45"
-            [footerHeight]="45"
-            [rowHeight]="'auto'"
-            [externalPaging]="true"
-            [count]="page.totalElements"
-            [offset]="page.pageNumber"
-            [limit]="page.size"
-            (page)="setPage($event)"
-            [loadingIndicator]="loadingIndicator"
-          >
-            <ngx-datatable-column
-              name="id"
-              [resizeable]="true"
-              [sortable]="true"
-              [draggable]="true"
-              [canAutoResize]="true"
-              [width]="35"
-            >
-              <ng-template
-                let-row="row"
-                let-expanded="expanded"
-                ngx-datatable-cell-template
-              >
-                <a [routerLink]="['/admin/user/detail', row.id]">{{
-                  row.id
-                }}</a>
-              </ng-template>
-            </ngx-datatable-column>
-            <ngx-datatable-column
-              name="username"
-              [resizeable]="true"
-              [sortable]="true"
-              [draggable]="true"
-              [canAutoResize]="true"
-              [width]="200"
-            >
-              <ng-template
-                let-row="row"
-                let-expanded="expanded"
-                ngx-datatable-cell-template
-              >
-                <a [routerLink]="['/admin/user/detail', row.id]">{{
-                  row.username
-                }}</a>
-              </ng-template>
-            </ngx-datatable-column>
-            <ngx-datatable-column
-              name="firstName"
-              [resizeable]="true"
-              [sortable]="true"
-              [draggable]="true"
-              [canAutoResize]="true"
-              [width]="180"
-            >
-              <ng-template let-value="value">
-                {{ value }}
-              </ng-template>
-            </ngx-datatable-column>
-            <ngx-datatable-column
-              name="lastName"
-              [resizeable]="true"
-              [sortable]="true"
-              [draggable]="true"
-              [canAutoResize]="true"
-              [width]="180"
-            >
-              <ng-template let-value="value">
-                {{ value }}
-              </ng-template>
-            </ngx-datatable-column>
-            <ngx-datatable-column
-              name="team"
-              [resizeable]="true"
-              [sortable]="true"
-              [draggable]="true"
-              [canAutoResize]="true"
-            >
-              <ng-template let-value="value">
-                {{ value }}
-              </ng-template>
-            </ngx-datatable-column>
-            <ngx-datatable-column
-              name="password"
-              [resizeable]="true"
-              [sortable]="true"
-              [draggable]="true"
-              [canAutoResize]="true"
-              [width]="150"
-            >
-              <ng-template ngx-datatable-header-template>
-                password
-              </ng-template>
-              <ng-template let-value="value">
-                {{ value }}
-              </ng-template>
-            </ngx-datatable-column>
-            <ngx-datatable-column
-              name="status"
-              [resizeable]="true"
-              [sortable]="true"
-              [draggable]="true"
-              [canAutoResize]="true"
-              [width]="80"
-            >
-              <ng-template ngx-datatable-header-template> status </ng-template>
-              <ng-template let-value="value">
-                {{ value }}
-              </ng-template>
-            </ngx-datatable-column>
-            <ngx-datatable-column
-              [draggable]="true"
-              [canAutoResize]="true"
-              [width]="10"
-            >
-              <ng-template ngx-datatable-header-template>
-                <i class="fa fa-trash" aria-hidden="true"></i>
-              </ng-template>
-              <ng-template
-                let-row="row"
-                let-expanded="expanded"
-                ngx-datatable-cell-template
-              >
-                <div
-                  *ngIf="
-                    row.id === 1 ||
-                    row.id === 2 ||
-                    row.id === 3 ||
-                    row.id === 4 ||
-                    row.id === 5 ||
-                    row.id === 6 ||
-                    row.id === 7 ||
-                    row.id === 8
-                  "
-                >
-                  <i
-                    class="fa fa-trash disabled"
-                    aria-hidden="true"
-                    style="color: #DBDBDB;"
-                  ></i>
-                </div>
-                <div
-                  *ngIf="
-                    row.id !== 1 &&
-                    row.id !== 2 &&
-                    row.id !== 3 &&
-                    row.id !== 4 &&
-                    row.id !== 5 &&
-                    row.id !== 6 &&
-                    row.id !== 7 &&
-                    row.id !== 8
-                  "
-                >
-                  <i
-                    class="fa fa-trash"
-                    aria-hidden="true"
-                    (click)="delete(row.id)"
-                    style="cursor:pointer"
-                  ></i>
-                </div>
-              </ng-template>
-            </ngx-datatable-column>
-          </ngx-datatable>
-        </div>
-        <div class="box-footer">
-          <div class="col-md-12">
-            <button
-              type="button"
-              class="btn btn-primary"
-              [routerLink]="'/admin/user/add'"
-            >
-              <i class="fa fa-plus-square"></i> Add User
-            </button>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="box box-primary">
+				<div class="box-header">
+					<h3 class="box-title">User List</h3>
+				</div>
+				<div class="box-body table-responsive ">
+					<ngx-datatable class="material" [rows]="rows" [columnMode]="'standard'" [headerHeight]="45" [footerHeight]="45" [rowHeight]="'auto'"
+					 [externalPaging]="true" [count]="page.totalElements" [offset]="page.pageNumber" [limit]="page.size" (page)='setPage($event)'
+					 [loadingIndicator]="loadingIndicator">
+						<ngx-datatable-column name="id" [resizeable]="true" [sortable]="true" [draggable]="true" [canAutoResize]="true" [width]="35">
+							<ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
+								<a [routerLink]="['/admin/user/detail',row.id]">{{row.id}}</a>
+							</ng-template>
+						</ngx-datatable-column>
+						<ngx-datatable-column name="username" [resizeable]="true" [sortable]="true" [draggable]="true" [canAutoResize]="true" [width]="200">
+							<ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
+								<a [routerLink]="['/admin/user/detail',row.id]">{{row.username}}</a>
+							</ng-template>
+						</ngx-datatable-column>
+						<ngx-datatable-column name="firstName" [resizeable]="true" [sortable]="true" [draggable]="true" [canAutoResize]="true" [width]="180">
+							<ng-template>
+								{{value}}
+							</ng-template>
+						</ngx-datatable-column>
+						<ngx-datatable-column name="lastName" [resizeable]="true" [sortable]="true" [draggable]="true" [canAutoResize]="true" [width]="180">
+							<ng-template>
+								{{value}}
+							</ng-template>
+						</ngx-datatable-column>
+						<ngx-datatable-column name="team" [resizeable]="true" [sortable]="true" [draggable]="true" [canAutoResize]="true" >
+							<ng-template>
+								{{value}}
+							</ng-template>
+						</ngx-datatable-column>
+						<ngx-datatable-column name="password" [resizeable]="true" [sortable]="true" [draggable]="true" [canAutoResize]="true" [width]="150">
+							<ng-template ngx-datatable-header-template>
+								password
+							</ng-template>
+							<ng-template>
+								{{value}}
+							</ng-template>
+						</ngx-datatable-column>
+						<ngx-datatable-column name="status" [resizeable]="true" [sortable]="true" [draggable]="true" [canAutoResize]="true" [width]="80">
+							<ng-template ngx-datatable-header-template>
+								status
+							</ng-template>
+							<ng-template>
+								{{value}}
+							</ng-template>
+						</ngx-datatable-column>
+						<ngx-datatable-column [draggable]="true" [canAutoResize]="true" [width]="10">
+							<ng-template ngx-datatable-header-template>
+								<i class="fa fa-trash" aria-hidden="true"></i>
+								</ng-template>
+								<ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
+									<div *ngIf="row.id===1 || row.id===2 || row.id===3 || row.id===4 || row.id===5 || row.id===6 || row.id===7 || row.id===8">
+                    <i class="fa fa-trash disabled" aria-hidden="true" style="color: #DBDBDB;"></i>
+                  </div>
+                  <div *ngIf="row.id!==1 && row.id!==2 && row.id!==3 && row.id!==4  && row.id!==5 && row.id!==6 && row.id!==7 && row.id!==8 ">
+                    <i class="fa fa-trash " aria-hidden="true" (click)="delete(row.id)" style="cursor:pointer"></i>
+                  </div>
+								</ng-template>
+							</ngx-datatable-column>
+						</ngx-datatable>
+					</div>
+					<div class="box-footer">
+						<div class="col-md-12">
+							<button type="button" class="btn btn-primary" [routerLink]="'/admin/user/add'"><i class="fa fa-plus-square"></i>
+                Add User</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 </section>

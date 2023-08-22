@@ -1,22 +1,22 @@
 [
   {
     "id": 1,
-    "name": "Asp.Net"
+    "name": "Asp.Net",
   },
   {
     "id": 2,
-    "name": "C#"
+    "name": "C#",
   },
   {
     "id": 3,
-    "name": "MVC"
+    "name": "MVC",
   },
   {
     "id": 4,
-    "name": "SQL"
+    "name": "SQL",
   },
   {
     "id": 5,
-    "name": "Angular 6"
-  }
+    "name": "Angular 6",
+  },
 ]

@@ -1,25 +1,20 @@
-import {
-  Component,
-  Input,
-  OnInit,
-  Output,
-  EventEmitter,
-  ViewEncapsulation,
-} from '@angular/core';
-import { AlertType, Alert } from '../../models/all';
+import { Component, Input, OnInit, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
+import { AlertType } from '../../models/all';
+
 @Component({
   selector: 'app-alert',
   templateUrl: './alert.component.html',
   styleUrls: ['./alert.component.css'],
 })
 export class AlertComponent implements OnInit {
+  
   @Input() alert: Alert;
 
-  constructor() {}
-
-  ngOnInit() {}
-
-  public getAlertBoxCss() {
+  constructor() { }
+  
+  ngOnInit() { }
+  
+  private getAlertBoxCss() {
     switch (this.alert.alertType) {
       case AlertType.Success:
         return 'alert alert-success alert-dismissible';
@@ -32,7 +27,7 @@ export class AlertComponent implements OnInit {
     }
   }
 
-  public getAlertIconCss() {
+  private getAlertIconCss() {
     switch (this.alert.alertType) {
       case AlertType.Success:
         return 'icon fa fa-check';
@@ -44,8 +39,7 @@ export class AlertComponent implements OnInit {
         return 'icon fa fa-warning';
     }
   }
-  
-  public showAlert() {
-    return this.alert === undefined || this.alert === null ? false : true;
+  private showAlert() {
+    return (this.alert === undefined || this.alert === null) ? false : true;
   }
 }

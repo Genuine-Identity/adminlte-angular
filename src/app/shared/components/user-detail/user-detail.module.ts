@@ -15,7 +15,11 @@ import { NgSelectModule } from '@ng-select/ng-select';
     AlertModule,
     NgSelectModule
   ],
-  declarations: [UserDetailComponent],
-  exports: [UserDetailComponent],
+  declarations: [
+    UserDetailComponent,
+  ],
+  exports: [
+    UserDetailComponent,
+  ]
 })
-export class UserDetailModule {}
+export class UserDetailModule { }

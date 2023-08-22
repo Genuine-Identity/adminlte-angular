@@ -1,12 +1,12 @@
 declare var $: any;
 
-+(function ($) {
++function ($) {
   'use strict';
 
   var DataKey = 'lte.controlsidebar';
 
   var Default = {
-    slide: true,
+    slide: true
   };
 
   var Selector = {
@@ -16,17 +16,17 @@ declare var $: any;
     bg: '.control-sidebar-bg',
     wrapper: '.wrapper',
     content: '.content-wrapper',
-    boxed: '.layout-boxed',
+    boxed: '.layout-boxed'
   };
 
   var ClassName = {
     open: 'control-sidebar-open',
-    fixed: 'fixed',
+    fixed: 'fixed'
   };
 
   var Event = {
     collapsed: 'collapsed.controlsidebar',
-    expanded: 'expanded.controlsidebar',
+    expanded: 'expanded.controlsidebar'
   };
 
   // ControlSidebar Class Definition
@@ -47,11 +47,9 @@ declare var $: any;
     }
 
     this.fix();
-    $(window).resize(
-      function () {
-        this.fix();
-      }.bind(this)
-    );
+    $(window).resize(function () {
+      this.fix();
+    }.bind(this));
   };
 
   ControlSidebar.prototype.toggle = function (event) {
@@ -59,10 +57,7 @@ declare var $: any;
 
     this.fix();
 
-    if (
-      !$(Selector.sidebar).is(Selector.open) &&
-      !$('body').is(Selector.open)
-    ) {
+    if (!$(Selector.sidebar).is(Selector.open) && !$('body').is(Selector.open)) {
       this.expand();
     } else {
       this.collapse();
@@ -95,7 +90,7 @@ declare var $: any;
   ControlSidebar.prototype._fixForBoxed = function (bg) {
     bg.css({
       position: 'absolute',
-      height: $(Selector.wrapper).height(),
+      height: $(Selector.wrapper).height()
     });
   };
 
@@ -107,12 +102,7 @@ declare var $: any;
       var data = $this.data(DataKey);
 
       if (!data) {
-        var options = $.extend(
-          {},
-          Default,
-          $this.data(),
-          typeof option == 'object' && option
-        );
+        var options = $.extend({}, Default, $this.data(), typeof option == 'object' && option);
         $this.data(DataKey, (data = new ControlSidebar($this, options)));
       }
 
@@ -138,4 +128,5 @@ declare var $: any;
     if (event) event.preventDefault();
     Plugin.call($(this), 'toggle');
   });
-})($);
+
+}($);

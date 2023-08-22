@@ -1,31 +1,31 @@
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import {
   Component,
   Input,
   OnInit,
   Output,
   EventEmitter,
-  ViewEncapsulation,
-} from '@angular/core';
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+  ViewEncapsulation
+} from "@angular/core";
 
-import { map } from 'rxjs/operators';
-import { of, Observable } from 'rxjs';
-import { first, mergeMap } from 'rxjs/operators';
+import { map } from "rxjs/operators";
+import { Observable, of } from "rxjs";
+import { first } from "rxjs/operators";
 
-import { User } from '../../../shared/models/index';
+import { User } from "../../../shared/models/index";
 import {
   PagedData,
   CorporateEmployee,
-  Page,
-} from '../../../shared/models/page';
-// import { NgSelectModule, NgOption } from '@ng-select/ng-select';
+  Page
+} from "../../../shared/models/page";
+import { NgSelectModule, NgOption } from "@ng-select/ng-select";
 
 @Injectable()
 export class UserService {
   users: User[];
-  // private usersInOption: NgOption[];
+  private usersInOption: NgOption[];
 
   constructor(private http: HttpClient) {}
 
@@ -55,12 +55,10 @@ export class UserService {
    * @returns {any} An observable containing the employee data
    */
   public getResults(page: Page): Observable<PagedData<User>> {
-    return this.getAll().pipe(
-      mergeMap((data) => {
-        this.users = data;
-        return of(data).pipe(map((data) => this.getPagedData(page)));
-      })
-    );
+    return this.getAll().flatMap(data => {
+      this.users = data;
+      return of(data).pipe(map(data => this.getPagedData(page)));
+    });
   }
 
   /**
@@ -82,7 +80,7 @@ export class UserService {
         jsonObj.firstName,
         jsonObj.lastName,
         jsonObj.education,
-        jsonObj.skillIds,
+        jsonObj.skills,
         jsonObj.team,
         jsonObj.status,
         jsonObj.id

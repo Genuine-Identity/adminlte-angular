@@ -5,6 +5,7 @@ import { LoginComponent } from './login/component/login.component';
 import { TermsAndConditionsComponent } from './terms-and-conditions/component/terms-and-conditions.component';
 
 import { DefaultComponent } from './default.component';
+import { UnderConstructionComponent } from './under-construction/under-construction.component';
 
 const routes: Routes = [
   {

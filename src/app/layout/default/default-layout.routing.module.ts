@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
 import { DefaultLayoutComponent } from './default-layout.component';
@@ -9,32 +10,24 @@ const routes: Routes = [
     component: DefaultLayoutComponent,
     children: [
       {
-        path: '',
-        loadChildren: () =>
-          import('../../modules/default/default.module').then(
-            (m) => m.DefaultModule
-          ),
+        path: '', loadChildren: '../../modules/default/default.module#DefaultModule',
       },
       {
-        path: 'login',
-        loadChildren: () =>
-          import('../../modules/default/default.module').then(
-            (m) => m.DefaultModule
-          ),
+        path: 'login', loadChildren: '../../modules/default/default.module#DefaultModule',
       },
-      {
-        path: 'register',
-        loadChildren: () =>
-          import('../../modules/default/default.module').then(
-            (m) => m.DefaultModule
-          ),
+       {
+        path: 'register', loadChildren: '../../modules/default/default.module#DefaultModule',
       },
-    ],
-  },
+    ]
+  }
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+  imports: [
+    RouterModule.forChild(routes),
+  ],
+  exports: [
+    RouterModule
+  ]
 })
-export class DefaultLayoutRoutingModule {}
+export class DefaultLayoutRoutingModule { }

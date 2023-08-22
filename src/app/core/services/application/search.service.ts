@@ -1,6 +1,6 @@
-import { Injectable, Inject } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Injectable, Inject } from "@angular/core";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Observable } from "rxjs/Observable";
 
 const SEARCH_ITEMS_PER_PAGE = 1000;
 const ISSUES_ITEMS_PER_PAGE = 100;

@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MailComposeComponent } from './mail-compose.component';
 import { Routes, RouterModule } from '@angular/router';
-// import { AceEditorModule } from 'ng2-ace-editor';
+import { AceEditorModule } from 'ng2-ace-editor';
 import { NgSelectModule } from '@ng-select/ng-select';
 @NgModule({
   imports: [
@@ -12,10 +12,14 @@ import { NgSelectModule } from '@ng-select/ng-select';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    // AceEditorModule,
-    NgSelectModule,
+    AceEditorModule,
+    NgSelectModule
   ],
-  declarations: [MailComposeComponent],
-  exports: [MailComposeComponent],
+  declarations: [
+    MailComposeComponent,
+  ],
+  exports: [
+    MailComposeComponent,
+  ]
 })
-export class MailComposeModule {}
+export class MailComposeModule { } 

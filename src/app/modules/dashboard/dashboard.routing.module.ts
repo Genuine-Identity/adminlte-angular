@@ -11,8 +11,7 @@ const routes: Routes = [
     component: DashboardComponent,
     children: [
       {
-        path: '',
-        component: DashbardControlPanelComponent,
+        path: '', component: DashbardControlPanelComponent,
         canActivate: [AuthGuard],
         data: {
           breadcrumb: 'Dashboard',
@@ -21,12 +20,11 @@ const routes: Routes = [
           smallText: 'Dashboard Small Text',
           isHome: true,
           icon: 'fa fa-home',
-          show: false,
+          show: false
         },
-      },
-      {
-        path: 'version-one',
-        component: DashbardVersionOneComponent,
+      },  
+       {
+        path: 'version-one', component: DashbardVersionOneComponent,
         canActivate: [AuthGuard],
         data: {
           breadcrumb: 'Dashboard Version One',
@@ -35,14 +33,18 @@ const routes: Routes = [
           smallText: 'Dashboard Version One Small Text',
           isHome: true,
           icon: 'fa fa-home',
-          show: false,
+          show: false
         },
       },
-    ],
-  },
+    ]
+  }
 ];
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+  imports: [
+    RouterModule.forChild(routes),
+  ],
+  exports: [
+    RouterModule
+  ]
 })
-export class DashboardRoutingModule {}
+export class DashboardRoutingModule { }

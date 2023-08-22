@@ -1,32 +1,24 @@
 import { NgModule } from '@angular/core';
-
+import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
-
-const routes: Routes = [
+const routes: Routes = [  
   {
     path: '',
-    loadChildren: () =>
-      import('./layout/admin/admin-layout.module').then(
-        (m) => m.AdminLayoutModule
-      ),
+    loadChildren: './layout/admin/admin-layout.module#AdminLayoutModule',    
   },
   {
     path: 'user',
-    loadChildren: () =>
-      import('./layout/default/default-layout.module').then(
-        (m) => m.DefaultLayoutModule
-      ),
+    loadChildren: './layout/default/default-layout.module#DefaultLayoutModule',
   },
-  { path: '**', redirectTo: '' },
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, {
-      onSameUrlNavigation: 'ignore',
-      preloadingStrategy: PreloadAllModules,
-    }),
+    RouterModule.forRoot(routes, { onSameUrlNavigation: 'ignore', preloadingStrategy: PreloadAllModules }),
   ],
-  exports: [RouterModule],
+  exports: [
+    RouterModule
+  ]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
