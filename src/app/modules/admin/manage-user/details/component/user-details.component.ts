@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter, ElementRef, Injectable } from '@angular/core';
-import { AppSettings } from '../../../../core/services/application/app-settings.service'
+// import { AppSettings } from 'core/services/application/app-settings.service'
 
 
 import { Observable, of } from "rxjs";
@@ -16,7 +16,7 @@ import { UserService } from '../../../../../core/services/application/user.servi
 
 export class UserDetailsComponent implements OnInit {
   page = new Page();
-  rows = new Array<CorporateEmployee>();
+  rows: any = new Array<CorporateEmployee>();
   editing = {};
 
   columns = [];

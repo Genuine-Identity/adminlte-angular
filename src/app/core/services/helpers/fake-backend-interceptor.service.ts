@@ -25,9 +25,9 @@ export class FakeBackendInterceptor implements HttpInterceptor {
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    let users: any[] = JSON.parse(this.localStorage.getItem("db.users")) || [];
+    let users: any[] = JSON.parse(localStorage.getItem("db.users")) || [];
     let messages: any[] =
-      JSON.parse(this.localStorage.getItem("db.messages")) || [];
+      JSON.parse(localStorage.getItem("db.messages")) || [];
 
     return of(null)
       .pipe(
@@ -97,6 +97,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             let duplicateUser = users.filter(user => {
               return user.username === newUser.username;
             }).length;
+         
             if (duplicateUser) {
               return throwError({
                 error: {
@@ -110,9 +111,10 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 ? 1
                 : users.length + 1;
             users.push(newUser);
-            this.localStorage.setItem(
-              "db.users",
-              JSON.stringify(_.sortBy(users, user => user.id))
+            console.log(JSON.stringify(users));    
+            localStorage.setItem(
+              "db.users",     
+              JSON.stringify(users)
             );
             return of(new HttpResponse({ status: 200 }));
           }
@@ -131,7 +133,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                   user.status = "InActive";
                   users.splice(i, 1);
                   users.push(user);
-                  this.localStorage.setItem(
+                  localStorage.setItem(
                     "db.users",
                     JSON.stringify(_.sortBy(users, user => user.id))
                   );
@@ -139,7 +141,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 }
                 // if (user.id === id) {
                 //   users.splice(i, 1);
-                //   this.localStorage.setItem(
+                //   localStorage.setItem(
                 //     "db.users",
                 //     JSON.stringify(_.sortBy(users, user => user.id))
                 //   );
@@ -171,7 +173,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                   users.splice(i, 1);
                   users.push(currentUser);
                   isUpdated = true;
-                  this.localStorage.setItem(
+                  localStorage.setItem(
                     "db.users",
                     JSON.stringify(_.sortBy(users, user => user.id))
                   );
@@ -198,7 +200,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             let message = request.body;
             message.id = messageCounter + 1;
             messages.push(message);
-            this.localStorage.setItem(
+            localStorage.setItem(
               "db.messages",
               JSON.stringify(_.sortBy(messages, message => message.id))
             );
@@ -329,7 +331,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 messages.splice(i, 1);
                 currentMessage.fromType = "Delete";
                 isUpdated = true;
-                this.localStorage.setItem(
+                localStorage.setItem(
                   "db.messages",
                   JSON.stringify(_.sortBy(messages, message => message.id))
                 );
@@ -360,7 +362,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                   messages.push(currentMessage);
                 }
                 isUpdated = true;
-                this.localStorage.setItem(
+                localStorage.setItem(
                   "db.messages",
                   JSON.stringify(_.sortBy(messages, message => message.id))
                 );

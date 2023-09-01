@@ -5,9 +5,9 @@
 	<form [formGroup]="mailComposeForm" (ngSubmit)="onSubmit()" autocomplete="off">
 		<div class="box-body">
 			<div class="form-group">
-				<ng-select [items]="mailsTo" bindLabel="name" bindValue="name" [multiple]="true" placeholder="Select emails" clearAllText="Clear"
+				<!-- <ng-select [items]="mailsTo" bindLabel="name" bindValue="name" [multiple]="true" placeholder="Select emails" clearAllText="Clear"
 				 formControlName="mailToIds">
-				</ng-select>
+				</ng-select> -->
 			</div>
 			<div class="form-group">
 				<input type="text"
@@ -16,7 +16,7 @@
                   formControlName="subject">
       </div>
       <div class="form-group">
-            <ace-editor #editor style="height:200px;"></ace-editor>
+            <!-- <ace-editor #editor style="height:200px;"></ace-editor> -->
       </div>
         </div>
         <div class="box-footer">

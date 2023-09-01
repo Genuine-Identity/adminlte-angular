@@ -11,14 +11,12 @@ const routes: Routes = [
     children: [
       {
         path: "",
-        loadChildren:
-          "../../modules/dashboard/dashboard.module#DashboardModule",
+        loadChildren: () => import('../../modules/dashboard/dashboard.module').then(m => m.DashboardModule),
         canActivate: [AuthGuard]
       },
       {
         path: "dashboard",
-        loadChildren:
-          "../../modules/dashboard/dashboard.module#DashboardModule",
+        loadChildren: () => import('../../modules/dashboard/dashboard.module').then(m => m.DashboardModule),
         canActivate: [AuthGuard],
         data: {
           breadcrumb: "Dashboard",
@@ -32,7 +30,7 @@ const routes: Routes = [
       },
       {
         path: "admin",
-        loadChildren: "../../modules/admin/admin.module#AdminModule",
+        loadChildren: () => import('../../modules/admin/admin.module').then(m => m.AdminModule),
         canActivate: [AuthGuard],
         data: {
           breadcrumb: "Admin",
@@ -46,7 +44,7 @@ const routes: Routes = [
       },
       {
         path: "mail",
-        loadChildren: "../../modules/mail/mail.module#MailModule",
+        loadChildren: () => import('../../modules/mail/mail.module').then(m => m.MailModule),
         canActivate: [AuthGuard],
         data: {
           breadcrumb: "Mail",
@@ -60,7 +58,7 @@ const routes: Routes = [
       },
       {
         path: "search",
-        loadChildren: "../../modules/search/search.module#SearchModule",
+        loadChildren: () => import('../../modules/search/search.module').then(m => m.SearchModule),
         canActivate: [AuthGuard],
         data: {
           breadcrumb: "Search",
@@ -74,7 +72,8 @@ const routes: Routes = [
       },
       {
         path: "system",
-        loadChildren: "../../modules/system/system.module#SystemModule",
+        loadChildren: () => import('../../modules/system/system.module').then(m => m.SystemModule),
+
         canActivate: [AuthGuard],
         data: {
           breadcrumb: "System",
@@ -94,4 +93,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AdminLayoutRoutingModule {}
+export class AdminLayoutRoutingModule { }

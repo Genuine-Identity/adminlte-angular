@@ -10,16 +10,16 @@ export class ContentHeaderComponent implements OnInit {
   breadcrumb: any;
 
   constructor(private route: ActivatedRoute, private router: Router) {
-    this.router.events
-      .filter((event) => event instanceof NavigationEnd)
-      .map(() => this.route)
-      .map((route) => {
-        while (route.firstChild) route = route.firstChild;
-        return route;
-      })
-      .subscribe((event) => {
-        this.breadcrumb = event.data._value;
-      });
+    // this.router.events
+    //   .pi((event) => event instanceof NavigationEnd)
+    //   .map(() => this.route)
+    //   .map((route) => {
+    //     while (route.firstChild) route = route.firstChild;
+    //     return route;
+    //   })
+    //   .subscribe((event) => {
+    //     this.breadcrumb = event.data._value;
+    //   });
   }
   ngOnInit() {
 

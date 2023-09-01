@@ -10,7 +10,7 @@ import {
   ViewEncapsulation
 } from "@angular/core";
 
-import { map } from "rxjs/operators";
+import { ignoreElements, startWith, pairwise, flatMap, concatMap, map, mergeMap, catchError } from 'rxjs/operators';
 import { Observable, of } from "rxjs";
 import { first } from "rxjs/operators";
 
@@ -20,14 +20,14 @@ import {
   CorporateEmployee,
   Page
 } from "../../../shared/models/page";
-import { NgSelectModule, NgOption } from "@ng-select/ng-select";
+// import { NgSelectModule, NgOption } from "@ng-select/ng-select";
 
 @Injectable()
 export class UserService {
   users: User[];
-  private usersInOption: NgOption[];
+  // private usersInOption: NgOption[];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getAll() {
     return this.http.get<User[]>(`/users`);
@@ -55,10 +55,14 @@ export class UserService {
    * @returns {any} An observable containing the employee data
    */
   public getResults(page: Page): Observable<PagedData<User>> {
-    return this.getAll().flatMap(data => {
-      this.users = data;
-      return of(data).pipe(map(data => this.getPagedData(page)));
-    });
+    return this.getAll()
+      .pipe(
+        catchError(err => of([]))
+      )
+      .pipe((data => {
+        // this.users = data;
+        return of(data).pipe(map(data => this.getPagedData(page)));
+      }));
   }
 
   /**
@@ -80,7 +84,7 @@ export class UserService {
         jsonObj.firstName,
         jsonObj.lastName,
         jsonObj.education,
-        jsonObj.skills,
+        jsonObj.skillIds,
         jsonObj.team,
         jsonObj.status,
         jsonObj.id

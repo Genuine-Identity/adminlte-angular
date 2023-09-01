@@ -26,6 +26,7 @@ export class RegisterComponent implements OnInit {
   alert: Alert;
   registerForm: FormGroup;
   submitted = false;
+  loading: any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -34,7 +35,7 @@ export class RegisterComponent implements OnInit {
     private router: Router,
     private messageService: MessageService,
     private log: LoggerService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.bindRegistrationFormGroup();
@@ -49,7 +50,7 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  get f() {
+  get f(): any {
     return this.registerForm.controls;
   }
 
@@ -100,7 +101,7 @@ export class RegisterComponent implements OnInit {
       );
   }
   sendJoiningMails(thisObject: any) {
-    let message: Message = {
+    let message: Message | any = {
       id: 0,
       from: "intelchiprules@yahoo.co.in",
       fromName: "Girish" + " " + "Nandgawe",
@@ -132,7 +133,7 @@ export class RegisterComponent implements OnInit {
       );
   }
   sendSpamMails(thisObject: any) {
-    let message: Message = {
+    let message: Message | any = {
       id: 0,
       from: "spammer@fakemail.com",
       fromName: "spammer" + " " + "team",

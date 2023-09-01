@@ -5,7 +5,7 @@ import { first } from "rxjs/operators";
 
 import { AuthService } from "../../../../core/services/application/auth.service";
 import { LoggerService } from "../../../../core/services/application/logger.service";
-@Component({ 
+@Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
   styleUrls: ["./login.component.css"]
@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   submitted: boolean = false;
   loginForm: FormGroup;
 
-  get f() {
+  get f(): any {
     return this.loginForm.controls;
   }
 
@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private log: LoggerService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.bindLoginFormGroup();
@@ -40,8 +40,10 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
+    
     this.submitted = true;
     if (this.loginForm.invalid) {
+     
       this.log.Information("loginForm.invalid");
       return;
     }
@@ -57,7 +59,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(["/admin/user/add"]);
         },
         error => {
-          // console.log(error);
+           console.log(error);
           this.log.Error(error);
         }
       );

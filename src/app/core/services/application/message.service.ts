@@ -25,7 +25,7 @@ import {
 @Injectable()
 export class MessageService {
   messages: Message[];
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   public register(message: Message) {
     return this.http.post(`/message/register`, message);
@@ -47,15 +47,15 @@ export class MessageService {
   }
 
   public getAll(): Observable<Message[]> {
-    return Observable.of(this.getMessage());
+    return of(this.getMessage());
   }
   public getMessages(
     page: Page,
     id: string,
     mailType: string
   ): Observable<PagedData<Message>> {
-    return this.getByToId(id, mailType).flatMap(data => {
-      this.messages = data;
+    return this.getByToId(id, mailType).pipe(data => {
+      // this.messages.push(data) = 
       return of(data).pipe(map(data => this.getPagedData(page)));
     });
   }
@@ -64,8 +64,8 @@ export class MessageService {
     id: string
   ): Observable<PagedData<Message>> {
     console.log("a");
-    return this.getByFromId(id).flatMap(data => {
-      this.messages = data;
+    return this.getByFromId(id).pipe(data => {
+      // this.messages = data;
       return of(data).pipe(map(data => this.getPagedData(page)));
     });
   }
@@ -76,8 +76,8 @@ export class MessageService {
   }
 
   public getResults(page: Page): Observable<PagedData<Message>> {
-    return this.getAll().flatMap(data => {
-      this.messages = data;
+    return this.getAll().pipe(data => {
+      // this.messages = data;
       return of(data).pipe(map(data => this.getPagedData(page)));
     });
   }
@@ -94,7 +94,7 @@ export class MessageService {
     const end = Math.min(start + page.size, page.totalElements);
     for (let i = start; i < end; i++) {
       const jsonObj = this.messages[i];
-      const message: Message = {
+      const message: any = {
         id: jsonObj.id,
         from: jsonObj.from,
         fromName: jsonObj.fromName,
@@ -107,7 +107,8 @@ export class MessageService {
         time: jsonObj.time,
         type: jsonObj.type,
         suggestion: jsonObj.suggestion,
-        imgSource: jsonObj.imgSource
+        imgSource: jsonObj.imgSource,
+        team: jsonObj.team,
       };
       pagedData.data.push(message);
     }
@@ -116,7 +117,7 @@ export class MessageService {
   }
 
   public getMessage(): Message[] {
-    let message: Message[] = [
+    let message: any[] = [
       {
         id: 1,
         imgSource: "https://github.com/Genuine-Identity.png",

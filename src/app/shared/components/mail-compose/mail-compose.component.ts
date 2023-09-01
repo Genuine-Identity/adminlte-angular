@@ -10,7 +10,7 @@ import {
   AfterViewInit
 } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { NgSelectModule, NgOption } from "@ng-select/ng-select";
+// import { NgSelectModule, NgOption } from "@ng-select/ng-select";
 import { SkillService } from "../../../core/services/application/skill.service";
 import { UserService } from "../../../core/services/application/user.service";
 import { User } from "../../../shared/models/user";
@@ -31,7 +31,7 @@ export class MailComposeComponent implements OnInit {
   @ViewChild("editor") editor;
   mailComposeForm: FormGroup;
 
-  get f() {
+  get f() :any{
     return this.mailComposeForm.controls;
   }
 
@@ -41,7 +41,7 @@ export class MailComposeComponent implements OnInit {
     private localStorage: LocalStorageService,
     private messageService: MessageService,
     private log: LoggerService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.bindUserDetails();
@@ -65,7 +65,7 @@ export class MailComposeComponent implements OnInit {
     this.editor.getEditor().commands.addCommand({
       name: "showOtherCompletions",
       bindKey: "Ctrl-.",
-      exec: function(editor) {}
+      exec: function (editor) { }
     });
   }
 
@@ -81,9 +81,9 @@ export class MailComposeComponent implements OnInit {
   }
 
   bindUserMailOption(users: User[]) {
-    let To: NgOption[] = [];
-    users.forEach(function(data) {
-      var option: NgOption = {
+    let To: any[] = [];
+    users.forEach(function (data) {
+      var option: any = {
         id: data.id,
         name: data.username
       };
@@ -98,7 +98,7 @@ export class MailComposeComponent implements OnInit {
     if (this.mailComposeForm.invalid) {
       return;
     }
-    this.f.mailToIds.value.forEach(function(id) {
+    this.f.mailToIds.value.forEach(function (id) {
       thisObject.SendMail(id, thisObject);
     });
   }
@@ -109,7 +109,7 @@ export class MailComposeComponent implements OnInit {
         for (let i = 0; i < data.length; i++) {
           let user = data[i];
           if (user.username === emailid) {
-            let message: Message = {
+            let message: Message | any = {
               id: 0,
               from: thisObject.user.username,
               fromName:

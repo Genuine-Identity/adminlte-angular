@@ -5,16 +5,18 @@ import { BreadcrumbsModule } from '@exalif/ngx-breadcrumbs';
 import { ContentHeaderComponent } from './content-header.component';
 
 @NgModule({
-  imports: [CommonModule,
+  imports: [
+    CommonModule,
     BreadcrumbsModule.forRoot()
   ],
   exports: [ContentHeaderComponent],
   declarations: [ContentHeaderComponent]
 })
 export class ContentHeaderModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: ContentHeaderModule,
-    }
-  }
+  // static forRoot(): ModuleWithProviders {
+  //   return {
+  //     ngModule: ContentHeaderModule,
+       
+  //   }
+  // }
 }

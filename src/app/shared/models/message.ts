@@ -11,7 +11,7 @@ export interface Message {
   body: string;
   fromTeam: string;
   toTeam: string;
-  time: string;
+  time: Date;
   type: MessageType;
   toType: MessageType;
   fromType: MessageType;
@@ -21,4 +21,5 @@ export interface Message {
   fromStatus: Status;
   InBoxComponentType: InBoxComponentType;
   hour: number;
+  team: string;
 }

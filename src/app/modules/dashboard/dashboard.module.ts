@@ -9,8 +9,8 @@ import { DashbardControlPanelComponent } from "./control-panel/pages/dashboard-c
 import { DashboardRoutingModule } from "./dashboard.routing.module";
 import { DashbardVersionOneComponent } from "./control-panel/dashboard-version-one/dashboard-version-one.component";
  
-import { ChartsModule } from "ng2-charts";
-import { ChartModule } from "angular-highcharts";
+// import { ChartsModule } from "ng2-charts";
+// import { ChartModule } from "angular-highcharts";
 
 @NgModule({
   imports: [
@@ -18,7 +18,7 @@ import { ChartModule } from "angular-highcharts";
     DashboardRoutingModule,
     FormsModule,
     CardDetailsModule,
-    ChartsModule
+    // ChartsModule
   ],
   declarations: [
     DashboardComponent,

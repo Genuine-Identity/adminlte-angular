@@ -124,7 +124,7 @@
                   <div class="col-sm-6">
                     <div class="form-group has-feedback" 
                       [ngClass]="{'has-error': (f.skillIds?.invalid && (f.skillIds?.dirty || f.skillIds?.touched)) || submitted && f.skillIds.errors, 'has-success': f.skillIds?.valid && (f.skillIds?.dirty || f.skillIds?.touched)}">
-                        <ng-select
+                        <!-- <ng-select
                             [items]="skills"
                             bindLabel="name"
                             bindValue="id"           
@@ -132,7 +132,7 @@
                             placeholder="Select skills"
                             clearAllText="Clear"
                             formControlName="skillIds">
-                        </ng-select>
+                        </ng-select> -->
                       <span class="glyphicon form-control-feedback"></span>
                       <div *ngIf="f.skillIds?.invalid && (f.skillIds?.dirty || f.skillIds?.touched) || submitted && f.skillIds.errors" class="invalid-feedback">
                         <span *ngIf="f.skillIds.errors.required" class="help-block">

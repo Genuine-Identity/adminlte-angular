@@ -31,16 +31,16 @@ export class MailSendGridComponent implements OnInit {
   ) {
     this.page.pageNumber = 0;
     this.page.size = 10;
-    this.router.events
-      .filter((event) => event instanceof NavigationEnd)
-      .map(() => this.route)
-      .map((route) => {
-        while (route.firstChild) route = route.firstChild;
-        return route;
-      })
-      .subscribe((event) => {
-        this.breadcrumb = event.data._value;
-      });
+    // this.router.events
+    //   .filter((event) => event instanceof NavigationEnd)
+    //   .map(() => this.route)
+    //   .map((route) => {
+    //     while (route.firstChild) route = route.firstChild;
+    //     return route;
+    //   })
+    //   .subscribe((event) => {
+    //     this.breadcrumb = event.data._value;
+    //   });
   }
 
   ngOnInit() {

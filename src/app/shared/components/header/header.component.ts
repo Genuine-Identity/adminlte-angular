@@ -8,8 +8,10 @@ import { MessageService } from "../../../core/services/application/message.servi
 import { NotificationService } from "../../../core/services/application/notification.service";
 import { TaskService } from "../../../core/services/application/task.service";
 
-import { User } from "../../models/index";
+import { Message, Task, User } from "../../models/index";
 import { LoggerService } from "../../../core/services/application/logger.service";
+import { Notification } from '../../../shared/models/notification';
+
 
 @Component({
   selector: "app-header",
@@ -17,10 +19,10 @@ import { LoggerService } from "../../../core/services/application/logger.service
   styleUrls: ["./header.component.css"]
 })
 export class HeaderComponent implements OnInit {
-  private user: User;
-  private tasks: Task[];
-  private messages: Message[];
-  private notifications: Notification[];
+  public user: User;
+  public tasks: Task[];
+  public messages: Message[];
+  public notifications: Notification[];
 
   constructor(
     private router: Router,
@@ -47,7 +49,9 @@ export class HeaderComponent implements OnInit {
   }
 
   bindNotificationMenu() {
-    this.notifications = this.notificationService.getNotification();
+    this.notifications=[];
+    var x= this.notificationService.getNotification();
+    this.notifications.concat(x);
   }
   bindTaskMenu() {
     this.tasks = this.taskService.getTask();

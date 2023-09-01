@@ -9,7 +9,7 @@ import { AppSettings } from '../../../../core/services/application/app-settings.
 })
 
 export class DashbardControlPanelComponent implements OnInit {
-  private cards: any;
+  public cards: any;
 
   constructor(private appSettings: AppSettings) {
   }

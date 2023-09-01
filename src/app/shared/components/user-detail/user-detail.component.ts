@@ -15,7 +15,7 @@ import { AlertType, Alert } from "../../models/all";
 import { Observable } from "rxjs";
 import { tap } from "rxjs/operators";
 import { AlertModule } from "../../widgets/alert/alert.module";
-import { NgSelectModule, NgOption } from "@ng-select/ng-select";
+// import { NgSelectModule, NgOption } from "@ng-select/ng-select";
 import { SkillService } from "../../../core/services/application/skill.service";
 
 @Component({
@@ -29,16 +29,17 @@ export class UserDetailComponent implements OnInit {
   alert: Alert;
   user: User;
   userDetailsForm: FormGroup;
-  skills: NgOption[];
+  skills: any[];
   skillIds: any[];
-
+  loading: any;
+  
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private userService: UserService,
     private formBuilder: FormBuilder,
     private skillService: SkillService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.bindDetails();
@@ -58,7 +59,7 @@ export class UserDetailComponent implements OnInit {
   }
 
   bindSkills() {
-    this.skills = this.skillService.getAllSkill();
+    this.skills = [];//= this.skillService.getAllSkill();
   }
 
   bindFormGroup() {
@@ -71,7 +72,7 @@ export class UserDetailComponent implements OnInit {
     });
   }
 
-  get f() {
+  get f(): any {
     return this.userDetailsForm.controls;
   }
 

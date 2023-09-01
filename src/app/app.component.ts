@@ -9,7 +9,7 @@ import { SkillService } from "./core/services/application/skill.service";
 import { LoggerService } from "./core/services/application/logger.service";
 import {
   NavigationCancel,
-  Event, 
+  Event,
   NavigationEnd,
   NavigationError,
   NavigationStart,
@@ -34,13 +34,13 @@ export class AppComponent implements OnInit {
     private messageService: MessageService,
     private localStorage: LocalStorageService,
     private log: LoggerService
-  ) {}
+  ) { }
 
   ngOnInit() {
     // localStorage.clear();
     // this.localStorage.setItem('db.message', null);
     // this.localStorage.setItem('db.messages', null);
-    this.initFakeBackendDatabase();   
+    this.initFakeBackendDatabase();
   }
 
   private initFakeBackendDatabase(): void {
@@ -248,7 +248,7 @@ export class AppComponent implements OnInit {
   }
   sendMailToDb(checkDatabaseIntialize: any) {
     if (!checkDatabaseIntialize) {
-      let message: Message = {
+      let message: Message | any = {
         id: 0,
         from: "intelchiprules@yahoo.co.in",
         fromName: "Girish" + " " + "Nandgawe",

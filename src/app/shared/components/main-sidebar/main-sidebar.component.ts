@@ -20,6 +20,7 @@ import { LoggerService } from "../../../core/services/application/logger.service
 })
 export class MainSidebarComponent implements OnInit, AfterViewInit {
   searchForm: FormGroup;
+  submitted:true;
 
   constructor(
     private elementRef: ElementRef,
@@ -35,7 +36,7 @@ export class MainSidebarComponent implements OnInit, AfterViewInit {
       search: ["", Validators.required]
     });
   }
-  get f() {
+  get f():any {
     return this.searchForm.controls;
   }
   ngAfterViewInit(): void {

@@ -14,13 +14,13 @@ import { MessageService } from '../../../core/services/application/message.servi
   styleUrls: ['./mail-body.component.css'],
 })
 export class MailBodyComponent implements OnInit {
-  breadcrumb: any;
-  private message: Message;
-  private user: User;
-  private id: number;
-  private submitted = false;
-  private userDetailsForm: FormGroup;
-  skillIds: any[]
+  public breadcrumb: any;
+  public message: Message;
+  public user: User;
+  public id: number;
+  public submitted = false;
+  public userDetailsForm: FormGroup;
+  public skillIds: any[]
 
   constructor(
     private userService: UserService,
@@ -29,16 +29,16 @@ export class MailBodyComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
   ) {
-    this.router.events
-      .filter((event) => event instanceof NavigationEnd)
-      .map(() => this.route)
-      .map((route) => {
-        while (route.firstChild) route = route.firstChild;
-        return route;
-      })
-      .subscribe((event) => {
-        this.breadcrumb = event.data._value;
-      });
+    // this.router.events
+    //   .filter((event) => event instanceof NavigationEnd)
+    //   .map(() => this.route)
+    //   .map((route) => {
+    //     while (route.firstChild) route = route.firstChild;
+    //     return route;
+    //   })
+    //   .subscribe((event) => {
+    //     this.breadcrumb = event.data._value;
+    //   });
   }
 
   ngOnInit() {

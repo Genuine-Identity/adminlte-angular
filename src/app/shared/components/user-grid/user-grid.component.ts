@@ -25,7 +25,7 @@ import {
 export class UserGridComponent implements OnInit {
   editing = {};
   page = new Page();
-  rows = new Array<User>();
+  public rows = new Array<User>();
   reorderable: boolean = true;
   loadingIndicator: boolean = false;
   pageInfo: any;

@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, Output, EventEmitter } from "@angular/core";
 import { AppSettings } from "../../../../core/services/application/app-settings.service";
-import { ChartOptions, ChartType, ChartDataSets } from "chart.js";
-import { Label } from "ng2-charts";
+import { ChartOptions, ChartType } from "chart.js";
+// import { Label } from "ng2-charts";
 import { User } from "../../../../shared/models/user";
 import { Message } from "../../../../shared/models/message";
 import { LocalStorageService } from "../../../../core/services/helpers/local-storage.service";
@@ -25,9 +25,9 @@ export class DashbardVersionOneComponent implements OnInit {
     responsive: true
   };
   public barChartPlugins;
-  public barChartLabels: Label[];
+  public barChartLabels: any[];
 
-  public barChartData: ChartDataSets[] = [];
+  public barChartData: any[] = [];
 
   public barChartLegend = true;
   public barChartType: ChartType = "bar";

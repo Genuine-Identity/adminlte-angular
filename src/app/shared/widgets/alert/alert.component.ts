@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
-import { AlertType } from '../../models/all';
+import { Alert, AlertType } from '../../models/all';
 
 @Component({
   selector: 'app-alert',
@@ -14,8 +14,8 @@ export class AlertComponent implements OnInit {
   
   ngOnInit() { }
   
-  private getAlertBoxCss() {
-    switch (this.alert.alertType) {
+  public getAlertBoxCss() {
+    switch (this.alert.alertType ) {
       case AlertType.Success:
         return 'alert alert-success alert-dismissible';
       case AlertType.Error:
@@ -25,9 +25,10 @@ export class AlertComponent implements OnInit {
       case AlertType.Warning:
         return 'alert alert-warning alert-dismissible';
     }
+    return "";
   }
 
-  private getAlertIconCss() {
+  public getAlertIconCss() {
     switch (this.alert.alertType) {
       case AlertType.Success:
         return 'icon fa fa-check';
@@ -36,10 +37,12 @@ export class AlertComponent implements OnInit {
       case AlertType.Info:
         return 'icon fa fa-info';
       case AlertType.Warning:
+        
         return 'icon fa fa-warning';
     }
+    return "";
   }
-  private showAlert() {
+  public showAlert() {
     return (this.alert === undefined || this.alert === null) ? false : true;
   }
 }
