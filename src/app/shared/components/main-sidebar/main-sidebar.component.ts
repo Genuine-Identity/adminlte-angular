@@ -9,8 +9,7 @@ import {
 } from '@angular/core';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import * as JQuery from 'jquery';
-const $ = JQuery;
+declare const $: any;
 import { Router } from '@angular/router';
 import { LoggerService } from '../../../core/services/application/logger.service';
 @Component({
