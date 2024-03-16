@@ -10,10 +10,11 @@ import {
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, of, throwError } from 'rxjs';
 import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
-import _ from 'lodash';
+
 import { UserSessionService } from '../../../core/services/application/user-session.service';
 import { LocalStorageService } from '../../../core/services/helpers/local-storage.service';
 import { User, Status } from '../../../shared/models/user';
+declare const _: any;
 
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {

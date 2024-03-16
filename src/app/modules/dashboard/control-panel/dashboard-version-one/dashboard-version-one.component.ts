@@ -7,7 +7,8 @@ import { User } from '../../../../shared/models/user';
 import { Message } from '../../../../shared/models/message';
 import { LocalStorageService } from '../../../../core/services/helpers/local-storage.service';
 import { MessageService } from '../../../../core/services/application/message.service';
-import { _ } from 'lodash';
+// import { _ } from 'lodash';
+declare const _: any;
 
 import {
   PagedData,
