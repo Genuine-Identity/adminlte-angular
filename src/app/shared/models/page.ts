@@ -2,7 +2,7 @@
  * An array of data with an associated page object used for paging
  */
 export class PagedData<T> {
-  data = new Array<T>();
+  data = [];
   page = new Page();
 }
 /**
