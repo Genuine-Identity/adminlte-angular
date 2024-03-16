@@ -24,7 +24,7 @@ import {
 
 @Injectable()
 export class UserService {
-  users: User[];
+  users: any | User[];
   // private usersInOption: NgOption[];
 
   constructor(private http: HttpClient) {}
@@ -54,7 +54,7 @@ export class UserService {
    * @param page The selected page
    * @returns {any} An observable containing the employee data
    */
-  public getResults(page: Page): Observable<PagedData<User>> {
+  public getResults(page: Page): Observable<any> {
     return this.getAll().pipe(
       mergeMap((data) => {
         this.users = data;
@@ -70,6 +70,7 @@ export class UserService {
    */
   private getPagedData(page: Page): PagedData<User> {
     const pagedData = new PagedData<User>();
+
     page.totalElements = this.users.length;
     page.totalPages = page.totalElements / page.size;
     const start = page.pageNumber * page.size;

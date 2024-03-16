@@ -11,7 +11,7 @@ export interface Message {
   body: string;
   fromTeam: string;
   toTeam: string;
-  time: Date;
+  time: any;
   type: MessageType;
   toType: MessageType;
   fromType: MessageType;

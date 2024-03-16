@@ -1,29 +1,29 @@
-import { NgModule } from '@angular/core';
+import { NgModule } from "@angular/core";
 
-import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from "@angular/router";
 
 const routes: Routes = [
   {
-    path: '',
+    path: "",
     loadChildren: () =>
-      import('./layout/admin/admin-layout.module').then(
+      import("./layout/admin/admin-layout.module").then(
         (m) => m.AdminLayoutModule
       ),
   },
   {
-    path: 'user',
+    path: "user",
     loadChildren: () =>
-      import('./layout/default/default-layout.module').then(
+      import("./layout/default/default-layout.module").then(
         (m) => m.DefaultLayoutModule
       ),
   },
-  { path: '**', redirectTo: '' },
+  { path: "**", redirectTo: "" },
 ];
 
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
-      onSameUrlNavigation: 'ignore',
+      onSameUrlNavigation: "ignore",
       preloadingStrategy: PreloadAllModules,
     }),
   ],

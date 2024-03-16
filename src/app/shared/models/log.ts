@@ -3,12 +3,12 @@ export enum Severity {
   Debug = 1,
   Information = 2,
   Warning = 3,
-  Error = 4, 
-  Fatal = 5
+  Error = 4,
+  Fatal = 5,
 }
 export interface Log {
   userName: string;
   description: string;
-  timeStamp: Date;
+  timeStamp: any;
   severity: Severity;
 }
