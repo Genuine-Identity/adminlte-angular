@@ -1,17 +1,12 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from "@angular/core";
 
 @Component({
-  selector: 'app-control-sidebar',
-  templateUrl: './control-sidebar.component.html',
-  styleUrls: ['./control-sidebar.component.css'],
+  selector: "app-control-sidebar",
+  templateUrl: "./control-sidebar.component.html",
+  styleUrls: ["./control-sidebar.component.css"],
 })
 export class ControlSidebarComponent implements OnInit {
+  constructor() {}
 
-
-  constructor() {
-  }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
