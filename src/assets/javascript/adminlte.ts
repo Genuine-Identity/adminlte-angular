@@ -1,4 +1,4 @@
-import $ from "jquery";
+declare var $: any;
 
 /*! AdminLTE app.js
  * ================
@@ -15,8 +15,8 @@ import $ from "jquery";
  */
 
 // Make sure jQuery has been loaded
-if (typeof $ === "undefined") {
-  throw new Error("AdminLTE requires jQuery");
+if (typeof $ === 'undefined') {
+  throw new Error('AdminLTE requires jQuery');
 }
 
 /* BoxRefresh()
@@ -28,17 +28,17 @@ if (typeof $ === "undefined") {
  *         Pass any option as data-option="value"
  */
 +(function ($) {
-  "use strict";
+  'use strict';
 
-  var DataKey = "lte.boxrefresh";
+  var DataKey = 'lte.boxrefresh';
 
   var Default = {
-    source: "",
+    source: '',
     params: {},
-    trigger: ".refresh-btn",
-    content: ".box-body",
+    trigger: '.refresh-btn',
+    content: '.box-body',
     loadInContent: true,
-    responseType: "",
+    responseType: '',
     overlayTemplate:
       '<div class="overlay"><div class="fa fa-refresh fa-spin"></div></div>',
     onLoadStart: function () {},
@@ -56,11 +56,12 @@ if (typeof $ === "undefined") {
   var BoxRefresh = function (element, options) {
     this.element = element;
     this.options = options;
+
     this.$overlay = $(options.overlay);
 
-    if (options.source === "") {
+    if (options.source === '') {
       throw new Error(
-        "Source url was not defined. Please specify a url in your BoxRefresh source option."
+        'Source url was not defined. Please specify a url in your BoxRefresh source option.'
       );
     }
 
@@ -82,7 +83,7 @@ if (typeof $ === "undefined") {
         this.options.onLoadDone.call($(this), response);
         this._removeOverlay();
       }.bind(this),
-      this.options.responseType !== "" && this.options.responseType
+      this.options.responseType !== '' && this.options.responseType
     );
   };
 
@@ -90,7 +91,7 @@ if (typeof $ === "undefined") {
 
   BoxRefresh.prototype._setUpListeners = function () {
     $(this.element).on(
-      "click",
+      'click',
       Selector.trigger,
       function (event) {
         if (event) event.preventDefault();
@@ -119,15 +120,15 @@ if (typeof $ === "undefined") {
           {},
           Default,
           $this.data(),
-          typeof option == "object" && option
+          typeof option == 'object' && option
         );
         $this.data(DataKey, (data = new BoxRefresh($this, options)));
       }
-      
+
       // data == "string"
       if (typeof data) {
-        if (typeof data[option] == "undefined") {
-          throw new Error("No method named " + option);
+        if (typeof data[option] == 'undefined') {
+          throw new Error('No method named ' + option);
         }
         data[option]();
       }
@@ -148,7 +149,7 @@ if (typeof $ === "undefined") {
 
   // BoxRefresh Data API
   // =================
-  $(window).on("load", function () {
+  $(window).on('load', function () {
     $(Selector.data).each(function () {
       Plugin.call($(this));
     });
@@ -164,36 +165,36 @@ if (typeof $ === "undefined") {
  *         Pass any option as data-option="value"
  */
 +(function ($) {
-  "use strict";
+  'use strict';
 
-  var DataKey = "lte.boxwidget";
+  var DataKey = 'lte.boxwidget';
 
   var Default = {
     animationSpeed: 500,
     collapseTrigger: '[data-widget="collapse"]',
     removeTrigger: '[data-widget="remove"]',
-    collapseIcon: "fa-minus",
-    expandIcon: "fa-plus",
-    removeIcon: "fa-times",
+    collapseIcon: 'fa-minus',
+    expandIcon: 'fa-plus',
+    removeIcon: 'fa-times',
   };
 
   var Selector = {
-    data: ".box",
-    collapsed: ".collapsed-box",
-    header: ".box-header",
-    body: ".box-body",
-    footer: ".box-footer",
-    tools: ".box-tools",
+    data: '.box',
+    collapsed: '.collapsed-box',
+    header: '.box-header',
+    body: '.box-body',
+    footer: '.box-footer',
+    tools: '.box-tools',
   };
 
   var ClassName = {
-    collapsed: "collapsed-box",
+    collapsed: 'collapsed-box',
   };
 
   var Event = {
-    collapsed: "collapsed.boxwidget",
-    expanded: "expanded.boxwidget",
-    removed: "removed.boxwidget",
+    collapsed: 'collapsed.boxwidget',
+    expanded: 'expanded.boxwidget',
+    removed: 'removed.boxwidget',
   };
 
   // BoxWidget Class Definition
@@ -223,14 +224,14 @@ if (typeof $ === "undefined") {
     $(this.element).removeClass(ClassName.collapsed);
 
     $(this.element)
-      .children(Selector.header + ", " + Selector.body + ", " + Selector.footer)
+      .children(Selector.header + ', ' + Selector.body + ', ' + Selector.footer)
       .children(Selector.tools)
-      .find("." + expandIcon)
+      .find('.' + expandIcon)
       .removeClass(expandIcon)
       .addClass(collapseIcon);
 
     $(this.element)
-      .children(Selector.body + ", " + Selector.footer)
+      .children(Selector.body + ', ' + Selector.footer)
       .slideDown(
         this.options.animationSpeed,
         function () {
@@ -245,14 +246,14 @@ if (typeof $ === "undefined") {
     var expandIcon = this.options.expandIcon;
 
     $(this.element)
-      .children(Selector.header + ", " + Selector.body + ", " + Selector.footer)
+      .children(Selector.header + ', ' + Selector.body + ', ' + Selector.footer)
       .children(Selector.tools)
-      .find("." + collapseIcon)
+      .find('.' + collapseIcon)
       .removeClass(collapseIcon)
       .addClass(expandIcon);
 
     $(this.element)
-      .children(Selector.body + ", " + Selector.footer)
+      .children(Selector.body + ', ' + Selector.footer)
       .slideUp(
         this.options.animationSpeed,
         function () {
@@ -279,13 +280,13 @@ if (typeof $ === "undefined") {
   BoxWidget.prototype._setUpListeners = function () {
     var that = this;
 
-    $(this.element).on("click", this.options.collapseTrigger, function (event) {
+    $(this.element).on('click', this.options.collapseTrigger, function (event) {
       if (event) event.preventDefault();
       that.toggle($(this));
       return false;
     });
 
-    $(this.element).on("click", this.options.removeTrigger, function (event) {
+    $(this.element).on('click', this.options.removeTrigger, function (event) {
       if (event) event.preventDefault();
       that.remove($(this));
       return false;
@@ -304,14 +305,14 @@ if (typeof $ === "undefined") {
           {},
           Default,
           $this.data(),
-          typeof option == "object" && option
+          typeof option == 'object' && option
         );
         $this.data(DataKey, (data = new BoxWidget($this, options)));
       }
 
-      if (typeof option == "string") {
-        if (typeof data[option] == "undefined") {
-          throw new Error("No method named " + option);
+      if (typeof option == 'string') {
+        if (typeof data[option] == 'undefined') {
+          throw new Error('No method named ' + option);
         }
         data[option]();
       }
@@ -332,7 +333,7 @@ if (typeof $ === "undefined") {
 
   // BoxWidget Data API
   // ==================
-  $(window).on("load", function () {
+  $(window).on('load', function () {
     $(Selector.data).each(function () {
       Plugin.call($(this));
     });
@@ -348,32 +349,32 @@ if (typeof $ === "undefined") {
  *         Pass any option as data-option="value"
  */
 +(function ($) {
-  "use strict";
+  'use strict';
 
-  var DataKey = "lte.controlsidebar";
+  var DataKey = 'lte.controlsidebar';
 
   var Default = {
     slide: true,
   };
 
   var Selector = {
-    sidebar: ".control-sidebar",
+    sidebar: '.control-sidebar',
     data: '[data-toggle="control-sidebar"]',
-    open: ".control-sidebar-open",
-    bg: ".control-sidebar-bg",
-    wrapper: ".wrapper",
-    content: ".content-wrapper",
-    boxed: ".layout-boxed",
+    open: '.control-sidebar-open',
+    bg: '.control-sidebar-bg',
+    wrapper: '.wrapper',
+    content: '.content-wrapper',
+    boxed: '.layout-boxed',
   };
 
   var ClassName = {
-    open: "control-sidebar-open",
-    fixed: "fixed",
+    open: 'control-sidebar-open',
+    fixed: 'fixed',
   };
 
   var Event = {
-    collapsed: "collapsed.controlsidebar",
-    expanded: "expanded.controlsidebar",
+    collapsed: 'collapsed.controlsidebar',
+    expanded: 'expanded.controlsidebar',
   };
 
   // ControlSidebar Class Definition
@@ -390,7 +391,7 @@ if (typeof $ === "undefined") {
     // Add click listener if the element hasn't been
     // initialized using the data API
     if (!$(this.element).is(Selector.data)) {
-      $(this).on("click", this.toggle);
+      $(this).on('click', this.toggle);
     }
 
     this.fix();
@@ -408,7 +409,7 @@ if (typeof $ === "undefined") {
 
     if (
       !$(Selector.sidebar).is(Selector.open) &&
-      !$("body").is(Selector.open)
+      !$('body').is(Selector.open)
     ) {
       this.expand();
     } else {
@@ -418,7 +419,7 @@ if (typeof $ === "undefined") {
 
   ControlSidebar.prototype.expand = function () {
     if (!this.options.slide) {
-      $("body").addClass(ClassName.open);
+      $('body').addClass(ClassName.open);
     } else {
       $(Selector.sidebar).addClass(ClassName.open);
     }
@@ -427,12 +428,12 @@ if (typeof $ === "undefined") {
   };
 
   ControlSidebar.prototype.collapse = function () {
-    $("body, " + Selector.sidebar).removeClass(ClassName.open);
+    $('body, ' + Selector.sidebar).removeClass(ClassName.open);
     $(this.element).trigger($.Event(Event.collapsed));
   };
 
   ControlSidebar.prototype.fix = function () {
-    if ($("body").is(Selector.boxed)) {
+    if ($('body').is(Selector.boxed)) {
       this._fixForBoxed($(Selector.bg));
     }
   };
@@ -441,7 +442,7 @@ if (typeof $ === "undefined") {
 
   ControlSidebar.prototype._fixForBoxed = function (bg) {
     bg.css({
-      position: "absolute",
+      position: 'absolute',
       height: $(Selector.wrapper).height(),
     });
   };
@@ -458,12 +459,12 @@ if (typeof $ === "undefined") {
           {},
           Default,
           $this.data(),
-          typeof option == "object" && option
+          typeof option == 'object' && option
         );
         $this.data(DataKey, (data = new ControlSidebar($this, options)));
       }
 
-      if (typeof option == "string") data.toggle();
+      if (typeof option == 'string') data.toggle();
     });
   }
 
@@ -481,9 +482,9 @@ if (typeof $ === "undefined") {
 
   // ControlSidebar Data API
   // =======================
-  $(document).on("click", Selector.data, function (event) {
+  $(document).on('click', Selector.data, function (event) {
     if (event) event.preventDefault();
-    Plugin.call($(this), "toggle");
+    Plugin.call($(this), 'toggle');
   });
 })($);
 
@@ -495,17 +496,17 @@ if (typeof $ === "undefined") {
  *         or add [data-widget="direct-chat"] to the trigger
  */
 +(function ($) {
-  "use strict";
+  'use strict';
 
-  var DataKey = "lte.directchat";
+  var DataKey = 'lte.directchat';
 
   var Selector = {
     data: '[data-widget="chat-pane-toggle"]',
-    box: ".direct-chat",
+    box: '.direct-chat',
   };
 
   var ClassName = {
-    open: "direct-chat-contacts-open",
+    open: 'direct-chat-contacts-open',
   };
 
   // DirectChat Class Definition
@@ -529,7 +530,7 @@ if (typeof $ === "undefined") {
         $this.data(DataKey, (data = new DirectChat($this)));
       }
 
-      if (typeof option == "string") data.toggle($this);
+      if (typeof option == 'string') data.toggle($this);
     });
   }
 
@@ -547,9 +548,9 @@ if (typeof $ === "undefined") {
 
   // DirectChat Data API
   // ===================
-  $(document).on("click", Selector.data, function (event) {
+  $(document).on('click', Selector.data, function (event) {
     if (event) event.preventDefault();
-    Plugin.call($(this), "toggle");
+    Plugin.call($(this), 'toggle');
   });
 })($);
 
@@ -563,9 +564,9 @@ if (typeof $ === "undefined") {
  *        to the body tag.
  */
 +(function ($) {
-  "use strict";
+  'use strict';
 
-  var DataKey = "lte.layout";
+  var DataKey = 'lte.layout';
 
   var Default = {
     slimscroll: true,
@@ -573,21 +574,21 @@ if (typeof $ === "undefined") {
   };
 
   var Selector = {
-    wrapper: ".wrapper",
-    contentWrapper: ".content-wrapper",
-    layoutBoxed: ".layout-boxed",
-    mainFooter: ".main-footer",
-    mainHeader: ".main-header",
-    sidebar: ".sidebar",
-    controlSidebar: ".control-sidebar",
-    fixed: ".fixed",
-    sidebarMenu: ".sidebar-menu",
-    logo: ".main-header .logo",
+    wrapper: '.wrapper',
+    contentWrapper: '.content-wrapper',
+    layoutBoxed: '.layout-boxed',
+    mainFooter: '.main-footer',
+    mainHeader: '.main-header',
+    sidebar: '.sidebar',
+    controlSidebar: '.control-sidebar',
+    fixed: '.fixed',
+    sidebarMenu: '.sidebar-menu',
+    logo: '.main-header .logo',
   };
 
   var ClassName = {
-    fixed: "fixed",
-    holdTransition: "hold-transition",
+    fixed: 'fixed',
+    holdTransition: 'hold-transition',
   };
 
   var Layout = function (options) {
@@ -600,12 +601,12 @@ if (typeof $ === "undefined") {
     this.fix();
     this.fixSidebar();
 
-    $("body").removeClass(ClassName.holdTransition);
+    $('body').removeClass(ClassName.holdTransition);
 
     if (this.options.resetHeight) {
-      $("body, html, " + Selector.wrapper).css({
-        height: "auto",
-        "min-height": "100%",
+      $('body, html, ' + Selector.wrapper).css({
+        height: 'auto',
+        'min-height': '100%',
       });
     }
 
@@ -615,8 +616,8 @@ if (typeof $ === "undefined") {
           this.fix();
           this.fixSidebar();
 
-          $(Selector.logo + ", " + Selector.sidebar).one(
-            "webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend",
+          $(Selector.logo + ', ' + Selector.sidebar).one(
+            'webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend',
             function () {
               this.fix();
               this.fixSidebar();
@@ -629,7 +630,7 @@ if (typeof $ === "undefined") {
     }
 
     $(Selector.sidebarMenu).on(
-      "expanded.tree",
+      'expanded.tree',
       function () {
         this.fix();
         this.fixSidebar();
@@ -637,7 +638,7 @@ if (typeof $ === "undefined") {
     );
 
     $(Selector.sidebarMenu).on(
-      "collapsed.tree",
+      'collapsed.tree',
       function () {
         this.fix();
         this.fixSidebar();
@@ -647,9 +648,9 @@ if (typeof $ === "undefined") {
 
   Layout.prototype.fix = function () {
     // Remove overflow from .wrapper if layout-boxed exists
-    $(Selector.layoutBoxed + " > " + Selector.wrapper).css(
-      "overflow",
-      "hidden"
+    $(Selector.layoutBoxed + ' > ' + Selector.wrapper).css(
+      'overflow',
+      'hidden'
     );
 
     // Get window height and the wrapper height
@@ -661,25 +662,25 @@ if (typeof $ === "undefined") {
 
     // Set the min-height of the content and sidebar based on
     // the height of the document.
-    if ($("body").hasClass(ClassName.fixed)) {
-      $(Selector.contentWrapper).css("min-height", windowHeight - footerHeight);
+    if ($('body').hasClass(ClassName.fixed)) {
+      $(Selector.contentWrapper).css('min-height', windowHeight - footerHeight);
     } else {
       var postSetHeight;
 
       if (windowHeight >= sidebarHeight + headerHeight) {
-        $(Selector.contentWrapper).css("min-height", windowHeight - neg);
+        $(Selector.contentWrapper).css('min-height', windowHeight - neg);
         postSetHeight = windowHeight - neg;
       } else {
-        $(Selector.contentWrapper).css("min-height", sidebarHeight);
+        $(Selector.contentWrapper).css('min-height', sidebarHeight);
         postSetHeight = sidebarHeight;
       }
 
       // Fix for the control sidebar height
       var $controlSidebar = $(Selector.controlSidebar);
-      if (typeof $controlSidebar !== "undefined") {
+      if (typeof $controlSidebar !== 'undefined') {
         if ($controlSidebar.height() > postSetHeight)
           $(Selector.contentWrapper).css(
-            "min-height",
+            'min-height',
             $controlSidebar.height()
           );
       }
@@ -688,22 +689,22 @@ if (typeof $ === "undefined") {
 
   Layout.prototype.fixSidebar = function () {
     // Make sure the body tag has the .fixed class
-    if (!$("body").hasClass(ClassName.fixed)) {
-      if (typeof $.fn.slimScroll !== "undefined") {
-        $(Selector.sidebar).slimScroll({ destroy: true }).height("auto");
+    if (!$('body').hasClass(ClassName.fixed)) {
+      if (typeof $.fn.slimScroll !== 'undefined') {
+        $(Selector.sidebar).slimScroll({ destroy: true }).height('auto');
       }
       return;
     }
 
     // Enable slimscroll for fixed layout
     if (this.options.slimscroll) {
-      if (typeof $.fn.slimScroll !== "undefined") {
+      if (typeof $.fn.slimScroll !== 'undefined') {
         // Destroy if it exists
         // $(Selector.sidebar).slimScroll({ destroy: true }).height('auto')
 
         // Add slimscroll
         $(Selector.sidebar).slimScroll({
-          height: $(window).height() - $(Selector.mainHeader).height() + "px",
+          height: $(window).height() - $(Selector.mainHeader).height() + 'px',
         });
       }
     }
@@ -721,14 +722,14 @@ if (typeof $ === "undefined") {
           {},
           Default,
           $this.data(),
-          typeof option === "object" && option
+          typeof option === 'object' && option
         );
         $this.data(DataKey, (data = new Layout(options)));
       }
 
-      if (typeof option === "string") {
-        if (typeof data[option] === "undefined") {
-          throw new Error("No method named " + option);
+      if (typeof option === 'string') {
+        if (typeof data[option] === 'undefined') {
+          throw new Error('No method named ' + option);
         }
         data[option]();
       }
@@ -749,8 +750,8 @@ if (typeof $ === "undefined") {
 
   // Layout DATA-API
   // ===============
-  $(window).on("load", function () {
-    Plugin.call($("body"));
+  $(window).on('load', function () {
+    Plugin.call($('body'));
   });
 })($);
 
@@ -763,9 +764,9 @@ if (typeof $ === "undefined") {
  *          Pass any option as data-option="value"
  */
 +(function ($) {
-  "use strict";
+  'use strict';
 
-  var DataKey = "lte.pushmenu";
+  var DataKey = 'lte.pushmenu';
 
   var Default = {
     collapseScreenSize: 767,
@@ -774,29 +775,29 @@ if (typeof $ === "undefined") {
   };
 
   var Selector = {
-    collapsed: ".sidebar-collapse",
-    open: ".sidebar-open",
-    mainSidebar: ".main-sidebar",
-    contentWrapper: ".content-wrapper",
-    searchInput: ".sidebar-form .form-control",
+    collapsed: '.sidebar-collapse',
+    open: '.sidebar-open',
+    mainSidebar: '.main-sidebar',
+    contentWrapper: '.content-wrapper',
+    searchInput: '.sidebar-form .form-control',
     button: '[data-toggle="push-menu"]',
-    mini: ".sidebar-mini",
-    expanded: ".sidebar-expanded-on-hover",
-    layoutFixed: ".fixed",
+    mini: '.sidebar-mini',
+    expanded: '.sidebar-expanded-on-hover',
+    layoutFixed: '.fixed',
   };
 
   var ClassName = {
-    collapsed: "sidebar-collapse",
-    open: "sidebar-open",
-    mini: "sidebar-mini",
-    expanded: "sidebar-expanded-on-hover",
-    expandFeature: "sidebar-mini-expand-feature",
-    layoutFixed: "fixed",
+    collapsed: 'sidebar-collapse',
+    open: 'sidebar-open',
+    mini: 'sidebar-mini',
+    expanded: 'sidebar-expanded-on-hover',
+    expandFeature: 'sidebar-mini-expand-feature',
+    layoutFixed: 'fixed',
   };
 
   var Event = {
-    expanded: "expanded.pushMenu",
-    collapsed: "collapsed.pushMenu",
+    expanded: 'expanded.pushMenu',
+    collapsed: 'collapsed.pushMenu',
   };
 
   // PushMenu Class Definition
@@ -809,10 +810,10 @@ if (typeof $ === "undefined") {
   PushMenu.prototype.init = function () {
     if (
       this.options.expandOnHover ||
-      $("body").is(Selector.mini + Selector.layoutFixed)
+      $('body').is(Selector.mini + Selector.layoutFixed)
     ) {
       this.expandOnHover();
-      $("body").addClass(ClassName.expandFeature);
+      $('body').addClass(ClassName.expandFeature);
     }
 
     $(Selector.contentWrapper).click(
@@ -820,7 +821,7 @@ if (typeof $ === "undefined") {
         // Enable hide menu when clicking on the content-wrapper on small screens
         if (
           $(window).width() <= this.options.collapseScreenSize &&
-          $("body").hasClass(ClassName.open)
+          $('body').hasClass(ClassName.open)
         ) {
           this.close();
         }
@@ -835,10 +836,10 @@ if (typeof $ === "undefined") {
 
   PushMenu.prototype.toggle = function () {
     var windowWidth = $(window).width();
-    var isOpen = !$("body").hasClass(ClassName.collapsed);
+    var isOpen = !$('body').hasClass(ClassName.collapsed);
 
     if (windowWidth <= this.options.collapseScreenSize) {
-      isOpen = $("body").hasClass(ClassName.open);
+      isOpen = $('body').hasClass(ClassName.open);
     }
 
     if (!isOpen) {
@@ -852,21 +853,21 @@ if (typeof $ === "undefined") {
     var windowWidth = $(window).width();
 
     if (windowWidth > this.options.collapseScreenSize) {
-      $("body")
+      $('body')
         .removeClass(ClassName.collapsed)
         .trigger($.Event(Event.expanded));
     } else {
-      $("body").addClass(ClassName.open).trigger($.Event(Event.expanded));
+      $('body').addClass(ClassName.open).trigger($.Event(Event.expanded));
     }
   };
 
   PushMenu.prototype.close = function () {
     var windowWidth = $(window).width();
     if (windowWidth > this.options.collapseScreenSize) {
-      $("body").addClass(ClassName.collapsed).trigger($.Event(Event.collapsed));
+      $('body').addClass(ClassName.collapsed).trigger($.Event(Event.collapsed));
     } else {
-      $("body")
-        .removeClass(ClassName.open + " " + ClassName.collapsed)
+      $('body')
+        .removeClass(ClassName.open + ' ' + ClassName.collapsed)
         .trigger($.Event(Event.collapsed));
     }
   };
@@ -875,14 +876,14 @@ if (typeof $ === "undefined") {
     $(Selector.mainSidebar).hover(
       function () {
         if (
-          $("body").is(Selector.mini + Selector.collapsed) &&
+          $('body').is(Selector.mini + Selector.collapsed) &&
           $(window).width() > this.options.collapseScreenSize
         ) {
           this.expand();
         }
       }.bind(this),
       function () {
-        if ($("body").is(Selector.expanded)) {
+        if ($('body').is(Selector.expanded)) {
           this.collapse();
         }
       }.bind(this)
@@ -891,13 +892,13 @@ if (typeof $ === "undefined") {
 
   PushMenu.prototype.expand = function () {
     setTimeout(function () {
-      $("body").removeClass(ClassName.collapsed).addClass(ClassName.expanded);
+      $('body').removeClass(ClassName.collapsed).addClass(ClassName.expanded);
     }, this.options.expandTransitionDelay);
   };
 
   PushMenu.prototype.collapse = function () {
     setTimeout(function () {
-      $("body").removeClass(ClassName.expanded).addClass(ClassName.collapsed);
+      $('body').removeClass(ClassName.expanded).addClass(ClassName.collapsed);
     }, this.options.expandTransitionDelay);
   };
 
@@ -913,12 +914,12 @@ if (typeof $ === "undefined") {
           {},
           Default,
           $this.data(),
-          typeof option == "object" && option
+          typeof option == 'object' && option
         );
         $this.data(DataKey, (data = new PushMenu(options)));
       }
 
-      if (option === "toggle") data.toggle();
+      if (option === 'toggle') data.toggle();
     });
   }
 
@@ -936,11 +937,11 @@ if (typeof $ === "undefined") {
 
   // Data API
   // ========
-  $(document).on("click", Selector.button, function (e) {
+  $(document).on('click', Selector.button, function (e) {
     e.preventDefault();
-    Plugin.call($(this), "toggle");
+    Plugin.call($(this), 'toggle');
   });
-  $(window).on("load", function () {
+  $(window).on('load', function () {
     Plugin.call($(Selector.button));
   });
 })($);
@@ -954,9 +955,9 @@ if (typeof $ === "undefined") {
  *         Pass any option as data-option="value"
  */
 +(function ($) {
-  "use strict";
+  'use strict';
 
-  var DataKey = "lte.todolist";
+  var DataKey = 'lte.todolist';
 
   var Default = {
     onCheck: function (item) {
@@ -972,7 +973,7 @@ if (typeof $ === "undefined") {
   };
 
   var ClassName = {
-    done: "done",
+    done: 'done',
   };
 
   // TodoList Class Definition
@@ -986,7 +987,7 @@ if (typeof $ === "undefined") {
 
   TodoList.prototype.toggle = function (item) {
     item.parents(Selector.li).first().toggleClass(ClassName.done);
-    if (!item.prop("checked")) {
+    if (!item.prop('checked')) {
       this.unCheck(item);
       return;
     }
@@ -1006,7 +1007,7 @@ if (typeof $ === "undefined") {
 
   TodoList.prototype._setUpListeners = function () {
     var that = this;
-    $(this.element).on("change ifChanged", "input:checkbox", function () {
+    $(this.element).on('change ifChanged', 'input:checkbox', function () {
       that.toggle($(this));
     });
   };
@@ -1016,21 +1017,21 @@ if (typeof $ === "undefined") {
   function Plugin(option) {
     return this.each(function () {
       var $this = $(this);
-      var data:any = $this.data(DataKey);
+      var data: any = $this.data(DataKey);
 
       if (!data) {
         var options = $.extend(
           {},
           Default,
           $this.data(),
-          typeof option == "object" && option
+          typeof option == 'object' && option
         );
         $this.data(DataKey, (data = new TodoList($this, options)));
       }
       // data == "string"
-      if (typeof data ) {
-        if (typeof data[option] == "undefined") {
-          throw new Error("No method named " + option);
+      if (typeof data) {
+        if (typeof data[option] == 'undefined') {
+          throw new Error('No method named ' + option);
         }
         data[option]();
       }
@@ -1051,7 +1052,7 @@ if (typeof $ === "undefined") {
 
   // TodoList Data API
   // =================
-  $(window).on("load", function () {
+  $(window).on('load', function () {
     $(Selector.data).each(function () {
       Plugin.call($(this));
     });

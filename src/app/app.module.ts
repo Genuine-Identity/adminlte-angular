@@ -12,8 +12,9 @@ import 'chart.js';
 import 'ionicons';
 import 'lodash';
 import 'rxjs';
-// import "../../src/assets/javascript/adminlte.ts";
-// import "../../src/assets/javascript/demo.ts";
+
+import '../../src/assets/javascript/adminlte';
+import '../../src/assets/javascript/demo';
 import { BehaviorSubject } from 'rxjs';
 
 import { AppComponent } from './app.component';
